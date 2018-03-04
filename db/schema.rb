@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102093854) do
+ActiveRecord::Schema.define(version: 20180304154754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 20180102093854) do
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_country_play_lists_on_country_id"
     t.index ["track_id"], name: "index_country_play_lists_on_track_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "import_csvs", force: :cascade do |t|
