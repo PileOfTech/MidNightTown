@@ -1,0 +1,7 @@
+.container
+  div ng-repeat="genre in ctrl.genres"
+    .genre-bl
+      a.link ui-sref="genre_path({id: genre.id})"
+        .background
+          .title ng-bind="genre.name"
+        img src="{{genre.cover.url}}"

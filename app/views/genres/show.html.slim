@@ -1,0 +1,11 @@
+h1 ng-bind="ctrl.genre.name"
+
+.packs-cont 
+  div ng-repeat="pack in ctrl.genre.packs"
+    .pack
+      .cover
+        img src="{{pack.cover.url}}"
+      .desc
+        a.title ng-bind="pack.name" ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
+
+        p ng-bind="pack.description"

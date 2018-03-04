@@ -1,0 +1,69 @@
+// Place all the styles related to the Genres controller here.
+// They will automatically be included in application.css.
+// You can use Sass here: http://sass-lang.com/
+
+
+.container
+  display: flex
+  flex-wrap: wrap
+  //background-color: grey
+  height: auto
+  width: 90%
+  margin: 0px auto
+  justify-content: space-around
+  .genre-bl
+    height: 200px
+    width: 300px
+    margin-top: 25px
+    position: relative
+    a.link
+      position: absolute
+      width: 100%
+      height: 100%       
+      .background
+        position: absolute
+        top: 0px
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, 0.5)
+        transition: 0.5s
+        &:hover
+          background-color: rgba(0, 0, 0, 0.8)
+          cursor: pointer
+        .title
+          text-align: center
+          color: white
+          font-size: 35px
+          padding-top: 82px
+    img
+      height: 100%
+      width: 100%
+
+
+.packs-cont
+  height: auto
+  width: 90%
+  margin: 0px auto
+  .pack
+    height: 400px
+    width: 100%
+    margin-top: 25px
+    display: flex
+    .cover
+      height: 100%
+      min-width: 500px
+      max-width: 500px
+      img
+        height: 100%
+        width: 100%
+    .desc
+      height: 100%
+      width: 100%
+      .title
+        font-size: 25px
+        font-weight: 900
+        margin-left: 50px
+        color: black
+
+      p 
+        padding-left: 50px

@@ -1,9 +1,12 @@
 html ng-app="app"
   head
-    title MAD
+    title MidNightTown
     base href="/"
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
   body
-    ui-view
-      /= yield
+    .navbar
+      a.logo ui-sref="root_path"
+    .global
+      ui-view
+        /= yield

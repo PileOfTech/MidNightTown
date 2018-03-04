@@ -115,6 +115,125 @@ angular.module("oxymoron.config.states", [])
           }
         })
       
+        .state('root_path', {
+          url: '/',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['root_path'](params);
+          },
+          controller: 'GenresCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('index', $stateParams)
+            }]
+          }
+        })
+      
+        .state('genre_pack_path', {
+          url: '/genres/:genre_id/packs/:id',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['genre_pack_path'](params);
+          },
+          controller: 'PacksCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('show', $stateParams)
+            }]
+          }
+        })
+      
+        .state('genres_path', {
+          url: '/genres',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['genres_path'](params);
+          },
+          controller: 'GenresCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('index', $stateParams)
+            }]
+          }
+        })
+      
+        .state('new_genre_path', {
+          url: '/genres/new',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['new_genre_path'](params);
+          },
+          controller: 'GenresCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('new', $stateParams)
+            }]
+          }
+        })
+      
+        .state('edit_genre_path', {
+          url: '/genres/:id/edit',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['edit_genre_path'](params);
+          },
+          controller: 'GenresCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('edit', $stateParams)
+            }]
+          }
+        })
+      
+        .state('genre_path', {
+          url: '/genres/:id',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['genre_path'](params);
+          },
+          controller: 'GenresCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('show', $stateParams)
+            }]
+          }
+        })
+      
+        .state('pack_path', {
+          url: '/packs/:id',
+          
+          templateUrl: function(params) {
+            params['ng-view']='';
+            
+            
+            return Routes['pack_path'](params);
+          },
+          controller: 'PacksCtrl as ctrl',
+          resolve: {
+            action: ['$stateParams', function ($stateParams) {
+              return resolve('show', $stateParams)
+            }]
+          }
+        })
+      
       return $stateProvider;
     }
   }])
@@ -177,6 +296,72 @@ angular.module("oxymoron.services.resources", [])
     };
   }])
 
+  
+    .factory('GenrePack', ['$resource', 'resourceDecorator', function ($resource, resourceDecorator) {
+      return resourceDecorator($resource('/genres/:genre_id/packs/:id.json', {"genre_id":"@genre_id","id":"@id"}, {
+        "new": {
+          "method": "GET",
+          "url": "/genres/:genre_id/packs/:id/new.json"
+        },
+        "edit": {
+          "method": "GET",
+          "url": "/genres/:genre_id/packs/:id/edit.json"
+        },
+        "update": {
+          "method": "PUT"
+        },
+        "create": {
+          "method": "POST"
+        },
+        "destroy": {
+          "method": "DELETE"
+        }
+      }));
+    }])
+  
+    .factory('Genre', ['$resource', 'resourceDecorator', function ($resource, resourceDecorator) {
+      return resourceDecorator($resource('/genres/:id.json', {"id":"@id"}, {
+        "new": {
+          "method": "GET",
+          "url": "/genres/:id/new.json"
+        },
+        "edit": {
+          "method": "GET",
+          "url": "/genres/:id/edit.json"
+        },
+        "update": {
+          "method": "PUT"
+        },
+        "create": {
+          "method": "POST"
+        },
+        "destroy": {
+          "method": "DELETE"
+        }
+      }));
+    }])
+  
+    .factory('Pack', ['$resource', 'resourceDecorator', function ($resource, resourceDecorator) {
+      return resourceDecorator($resource('/packs/:id.json', {"id":"@id"}, {
+        "new": {
+          "method": "GET",
+          "url": "/packs/:id/new.json"
+        },
+        "edit": {
+          "method": "GET",
+          "url": "/packs/:id/edit.json"
+        },
+        "update": {
+          "method": "PUT"
+        },
+        "create": {
+          "method": "POST"
+        },
+        "destroy": {
+          "method": "DELETE"
+        }
+      }));
+    }])
   
 angular.module("oxymoron.services.sign", [])
   .service('Sign', ['$http', function ($http) {
@@ -451,7 +636,7 @@ angular.module("oxymoron.directives", ['oxymoron.directives.fileupload', 'oxymor
 (function () {
   var Routes = function () {
     var self = this,
-        routes = {"rails_info_properties":{"defaults":{},"path":"/rails/info/properties"},"rails_info_routes":{"defaults":{},"path":"/rails/info/routes"},"rails_info":{"defaults":{},"path":"/rails/info"},"rails_mailers":{"defaults":{},"path":"/rails/mailers"}};
+        routes = {"rails_info_properties":{"defaults":{},"path":"/rails/info/properties"},"rails_info_routes":{"defaults":{},"path":"/rails/info/routes"},"rails_info":{"defaults":{},"path":"/rails/info"},"rails_mailers":{"defaults":{},"path":"/rails/mailers"},"root":{"defaults":{},"path":"/"},"genre_pack":{"defaults":{},"path":"/genres/:genre_id/packs/:id"},"genres":{"defaults":{},"path":"/genres"},"new_genre":{"defaults":{},"path":"/genres/new"},"edit_genre":{"defaults":{},"path":"/genres/:id/edit"},"genre":{"defaults":{},"path":"/genres/:id"},"pack":{"defaults":{},"path":"/packs/:id"}};
 
     self.defaultParams = {}
 
