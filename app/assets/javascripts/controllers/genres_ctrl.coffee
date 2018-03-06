@@ -1,7 +1,16 @@
 app.controller 'GenresCtrl', [
   '$scope', 'Genre', 'action',  
   ($scope, Genre, action) -> 
-
+    angular.element(document).ready(() ->
+      new WOW(  {
+        boxClass:     'wow',
+        offset:       0,          
+        mobile:       true,       
+        live:         true,       
+        animateClass: 'animated',
+        scrollContainer: null
+      }).init()
+    )
     ctrl = this
     action 'index', () ->
       $(window).bind('scroll', (e)->
@@ -32,6 +41,5 @@ app.controller 'GenresCtrl', [
 
     action 'show', (params) ->
       ctrl.genre = Genre.get({id: params.id})
-      console.log ctrl.genre
     return
 ]

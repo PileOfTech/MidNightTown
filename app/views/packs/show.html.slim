@@ -1,4 +1,5 @@
-.container
-  div ng-repeat="image in ctrl.pack.images"
-    .image
-      img src="{{image.image.url}}"
+.image-container
+  .images
+    div ng-repeat="image in ctrl.pack.images"
+      .image
+        img src="{{image.image.url}}"

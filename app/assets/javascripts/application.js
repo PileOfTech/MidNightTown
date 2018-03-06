@@ -9,7 +9,7 @@
 = require_self
 = require_tree ./controllers
 = require ammap
-= require worldLow
+= require wow.min
 = require jquery3
 = require jquery_ujs
 = require ng-file-upload
