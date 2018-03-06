@@ -2,68 +2,268 @@
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
 
+.fon
+  height: calc(100% - 100px)
+  width: 100%
+  background-color: #3D3B54
+  position: relative
+  .bigtitle-c
+    position: absolute
+    height: 180px
+    width: 100%
+    margin-top: 210px
+    z-index: 3    
+    .bigtitle
+      text-align: center
+      font-family: 'third-rail'
+      color: #b22c44
+      font-size: 180px
+      user-select: none
+      -moz-user-select: none
+      -webkit-user-select: none 
+  .slogan-c
+    position: absolute
+    height: 80px
+    width: 100%
+    margin-top: 350px
+    z-index: 5   
+    .slogan
+      text-align: center
+      font-family: 'third-rail'
+      color: #b22c44
+      font-size: 80px
+      user-select: none
+      -moz-user-select: none
+      -webkit-user-select: none 
+      z-index: 5
 
-.container
-  display: flex
-  flex-wrap: wrap
-  //background-color: grey
-  height: auto
-  width: 90%
-  margin: 0px auto
-  justify-content: space-around
-  .genre-bl
-    height: 200px
-    width: 300px
-    margin-top: 25px
-    position: relative
-    a.link
+
+  #town3
+    z-index: 2
+  #town2
+    z-index: 4
+  #town1
+    z-index: 6
+  .town
+    position: absolute
+    width: 100%
+    height: 400px
+    margin-top: 180px  
+    img
       position: absolute
       width: 100%
-      height: 100%       
-      .background
-        position: absolute
-        top: 0px
-        width: 100%
-        height: 100%
-        background-color: rgba(0, 0, 0, 0.5)
-        transition: 0.5s
-        &:hover
-          background-color: rgba(0, 0, 0, 0.8)
-          cursor: pointer
-        .title
-          text-align: center
-          color: white
-          font-size: 35px
-          padding-top: 82px
-    img
       height: 100%
-      width: 100%
-
-
-.packs-cont
-  height: auto
-  width: 90%
-  margin: 0px auto
-  .pack
-    height: 400px
+      bottom: 0
+      user-select: none
+      -moz-user-select: none
+      -webkit-user-select: none       
+.container
+  background-color: #2c2e3e
+  width: 100% 
+  position: relative
+  .back
+    position: absolute
     width: 100%
-    margin-top: 25px
-    display: flex
-    .cover
+    height: 500
+    background-color: #2c2e3e
+    z-index: 10
+  .lines
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: 11
+    $wine: #AB0359
+    .left
       height: 100%
-      min-width: 500px
-      max-width: 500px
+      width: 5px
+      background-color: $wine
+      float: left
+      margin-left: 3%    
+    .right
+      height: 100%
+      width: 5px
+      background-color: $wine
+      float: right
+      margin-right: 3%
+  .top
+    animation: Top 0.8s
+    margin-top: -100px !important
+  .return
+    animation: Fix 0.5s
+    margin-top: 100px !important  
+  .genres
+    z-index: 12
+    margin-top: 100px
+    width: 930px
+    height: auto
+    margin-bottom: 50px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around    
+    .genre-bl
+      height: 200px
+      width: 300px
+      margin-top: 10px
+      position: relative
+      a.link
+        position: absolute
+        width: 100%
+        height: 100%       
+        .background
+          position: absolute
+          top: 0px
+          width: 100%
+          height: 100%
+          background-color: rgba(0, 0, 0, 0.5)
+          transition: 0.5s
+          &:hover
+            background-color: rgba(0, 0, 0, 0.8)
+            cursor: pointer
+          .title
+            text-align: center
+            color: white
+            font-size: 45px
+            padding-top: 62px
+            font-family: 'romantique'
       img
         height: 100%
         width: 100%
-    .desc
-      height: 100%
-      width: 100%
-      .title
-        font-size: 25px
-        font-weight: 900
-        margin-left: 50px
-        color: black
 
-      p 
-        padding-left: 50px
+
+.main-background
+  width: 100%
+  height: auto
+  position: relative
+  background-color: #2c2e3e
+  // h1 
+  //   padding-top: 100px
+  //   font-size: 65px
+  //   text-align: center
+  //   color: white
+  //   text-transform: uppercase
+  //   font-family: 'impact'
+  .block
+    margin-top: 100px
+    position: relative
+    width: 100%
+    height: 70px
+    $width: 650px
+    float: left
+    .text-cont
+      $fon: #640247
+      $dur: 2s
+      $font: 65px
+      $height: 70px
+      position: absolute
+      height: 75px
+      font-size: 65px
+      color: white
+      text-transform: uppercase
+      font-family: 'impact' 
+      width: initial
+      left: 5%
+      .first-line
+        visibility: hidden
+        position: absolute
+        height: $height
+        background-color: $fon
+        width: $width
+        animation: firstSlide $dur
+        z-index: 20
+      .second-line
+        visibility: hidden
+        position: absolute
+        right: 0px
+        height: $height
+        background-color: $fon
+        width: $width
+        animation: secondSlide $dur
+        z-index: 99
+      .text
+        font-family: 'impact'
+        visibility: visible
+        font-family: sans-serif
+        font-size: $font
+        color: white
+        font-weight: 900
+        white-space: nowrap
+        z-index: 21
+        animation: textShow $dur
+
+  .packs-cont
+    position: relative
+    height: auto
+    width: 90%
+    margin: 0px auto
+    padding-top: 150px
+    padding-bottom: 50px
+    .pack
+      height: 400px
+      width: 100%
+      margin-top: 45px
+      display: flex
+      .cover
+        height: 100%
+        min-width: 500px
+        max-width: 500px
+        img
+          height: 100%
+          width: 100%
+      .desc
+        height: 100%
+        width: 100%
+        .title
+          font-size: 25px
+          font-weight: 900
+          margin-left: 50px
+          color: black
+
+        p 
+          padding-left: 50px
+
+@keyframes Top
+  0%
+    margin-top: 100px
+  100%
+    margin-top: -100px
+
+@keyframes Fix
+  0%
+    margin-top: -100px
+  100%
+    margin-top: 100px
+
+@-webkit-keyframes textShow
+  0%
+    visibility: hidden
+  49%
+    visibility: hidden
+  50%
+    visibility: visible
+  100%
+    visibility: visible
+
+@-webkit-keyframes firstSlide
+  0%
+    width: 0px
+    visibility: visible
+  50%
+    width: 100%
+    visibility: hidden
+  100%
+    width: 100%
+    visibility: hidden
+
+@-webkit-keyframes secondSlide
+  0%
+    width: 100%
+    visibility: hidden
+  49%
+    width: 100%
+    visibility: hidden
+  50%
+    width: 100%
+    visibility: visible
+  100%
+    width: 0%
+    visibility: hidden

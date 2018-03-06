@@ -20,8 +20,22 @@
   font-family: 'open-sans'
   src: url('OpenSans-Regular.ttf')
 
+@font-face 
+  font-family: 'impact'
+  src: url('Impact.ttf')
+
+@font-face 
+  font-family: 'romantique'
+  src: url('Romantique.ttf')
+
+@font-face 
+  font-family: 'third-rail'
+  src: url('Third-Rail.ttf')
+
 body
+  overflow-x: hidden
   font-family: 'open-sans'
+
 a
   text-decoration: none !important 
   &:hover
@@ -29,15 +43,24 @@ a
 .navbar
   width: 100%
   height: 50px
-  background-color: #17132A
-  position: relative
+  position: absolute
+  z-index: 10
+  top: 25px
+  background-image: url("navbar_line.png")
+  background-repeat: no-repeat
+  background-size: 100%
   .logo
-    height: 60px
-    width: 60px
+    margin-top: -15px
+    height: 80px
+    width: 80px
     position: absolute
-    background-color: grey
     float: center
     left: 47%    
+    border-radius: 50%
+    img
+      width: 100%
+      height: 100%
+      border-radius: 50%
 
 .global
   width: 100%

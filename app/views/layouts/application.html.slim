@@ -7,6 +7,7 @@ html ng-app="app"
   body
     .navbar
       a.logo ui-sref="root_path"
-    .global
-      ui-view
-        /= yield
+        =image_tag("logo.png")
+    
+    ui-view
+      /= yield

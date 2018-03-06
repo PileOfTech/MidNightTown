@@ -1,7 +1,20 @@
+.fon
+  .bigtitle-c
+    .bigtitle MidNigthTown
+  .slogan-c
+    .slogan photo of your dream
+  .town#town3
+    =image_tag("town3") 
+  .town#town2
+    =image_tag("town2")
+  .town#town1
+    =image_tag("town1")       
 .container
-  div ng-repeat="genre in ctrl.genres"
-    .genre-bl
-      a.link ui-sref="genre_path({id: genre.id})"
-        .background
-          .title ng-bind="genre.name"
-        img src="{{genre.cover.url}}"
+  .back#back
+  .genres 
+    div ng-repeat="genre in ctrl.genres"
+      .genre-bl
+        a.link ui-sref="genre_path({id: genre.id})"
+          .background
+            .title ng-bind="genre.name"
+          img src="{{genre.cover.url}}"
