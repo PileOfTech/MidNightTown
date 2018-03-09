@@ -1,5 +1,19 @@
-.image-container
+.modal-back
+  .close
+  .modal
+    .background
+      .arrow-side.left
+        .arrow
+          = image_tag("chevron.svg")
+      .arrow-side.right
+        .arrow
+          = image_tag("chevron.svg")
+      .info.watches
+        .count alt="" {{watches}}
+        .eye
+      .info.date ng-model="date" {{date | date:'dd MMMM yyyy hh:mm':'UTC'}}
+.image-container.not-scrolling
   .images
-    div ng-repeat="image in ctrl.pack.images"
-      .image
-        img src="{{image.image.url}}"
+    div ng-repeat="image in ctrl.images"
+      .image id="{{$index}}" ng-click="modal($index)"
+        img src="{{image.image.url}}" 

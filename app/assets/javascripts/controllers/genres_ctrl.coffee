@@ -4,7 +4,7 @@ app.controller 'GenresCtrl', [
     angular.element(document).ready(() ->
       new WOW(  {
         boxClass:     'wow',
-        offset:       0,          
+        offset:       50,          
         mobile:       true,       
         live:         true,       
         animateClass: 'animated',
@@ -25,12 +25,10 @@ app.controller 'GenresCtrl', [
           $('#back').css('top',(0-(scrolled*0.4))+'px')
           if(scrolled > lastScrollTop)
             $('.genres').removeClass('return')
-            if(scrolled > 200)
-              $('.genres').addClass('top')
-            # if(scrolled >= 200)
-            #   $('.genres').addClass('top2')   
+            if(scrolled > 250)
+              $('.genres').addClass('top')  
           if(scrolled < lastScrollTop)
-            if(scrolled <= 200)
+            if(scrolled <= 250)
               $('.genres').removeClass('top2')
               $('.genres').addClass('return')
             if(scrolled <= 100)
@@ -41,5 +39,10 @@ app.controller 'GenresCtrl', [
 
     action 'show', (params) ->
       ctrl.genre = Genre.get({id: params.id})
+
+    action 'price_list', () ->
+
+    action 'contacts', () ->
+      
     return
 ]

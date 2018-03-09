@@ -8,4 +8,12 @@ class GenresController < ApplicationController
     @packs = @genre.packs
   end
 
+  def price_list
+    render :price_list
+  end
+
+  def contacts
+    render :contacts
+  end
+
 end

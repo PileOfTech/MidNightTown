@@ -10,9 +10,11 @@
       div ng-if="$index%2==0"
         .pack
           .cover
+            a.background ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
+              .text ПЕРЕЙТИ
             img src="{{pack.cover.url}}"
           .desc        
-            a.text-cont ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"   
+            a.text-cont ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
               .first-line.wow
               .second-line.wow
               .text ng-bind="pack.name"           
@@ -26,4 +28,6 @@
               .text ng-bind="pack.name"               
             p.rigth &emsp;&emsp;&emsp;&nbsp;{{pack.description}}      
           .cover
+            a.background ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
+              .text ПЕРЕЙТИ          
             img src="{{pack.cover.url}}"

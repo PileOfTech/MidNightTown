@@ -3,6 +3,120 @@
 // You can use Sass here: http://sass-lang.com/
 
 
+.open
+  display: block !important
+.modal-back
+  display: none
+  position: absolute
+  height: 100%
+  width: 100%
+  background-color: rgba(0,0,0,0.9)
+  z-index: 50
+  .close
+    height: 30px
+    width: 30px
+    background-image: url("close")
+    background-size: cover
+    position: absolute
+    right: 30px
+    top: 30px
+    transition: 0.3s
+    z-index: 20
+    &:hover
+      transform: scale(1.1, 1.1)
+      cursor: pointer
+  .modal
+    z-index: 30
+    position: relative
+    height: 510px
+    width: 930px
+    background-color: white
+    margin: 0px auto
+    margin-top: 70px
+    background-size: cover
+    border-radius: 5px
+    .background
+      position: absolute
+      height: 100%
+      width: 100%
+      .info
+        height: 20px
+        background-color: rgba(0,0,0,0.4)
+        border-radius: 5px
+        color: white
+        bottom: 5px
+        position: absolute
+        font-family: 'open-sans'
+        text-align: center
+        font-size: 13px
+        width: initial
+      .watches
+        right: 5px
+        min-width: 10px
+        display: flex
+        user-select: none
+        -moz-user-select: none
+        -webkit-user-select: none         
+        .count
+          margin-left: 10px
+        .eye
+          margin-left: 5px
+          margin-right: 10px
+          margin-top: 3px
+          height: 14px
+          width: 14px
+          background-color: grey
+          background: url("eye.png") 
+          background-size: cover
+      .date
+        user-select: none
+        -moz-user-select: none
+        -webkit-user-select: none         
+        left: 5px
+        width: 160px
+
+
+      .arrow-side
+        width: 200px
+        height: 100%
+        cursor: pointer
+        transition: background 1s ease-out
+        background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.0))
+        z-index: 40
+        .arrow
+          transition: 0.5s
+          height: 50px
+          width: 25px
+          margin-top: 225px
+          margin-left: 25px
+          opacity: 0
+          user-select: none
+          -moz-user-select: none
+          -webkit-user-select: none           
+          img
+            z-index: 50
+            height: 100%
+            width: 100%        
+        &:hover
+          .arrow
+            opacity: 1
+            transform: scale(1.1, 1.1)
+      .left
+        transition: background 1s ease-out
+        float: left
+        &:hover
+          background: linear-gradient(to right, rgba(0,0,0,.85), rgba(0,0,0,0.0))
+      .right
+        float: right
+        &:hover
+          background: linear-gradient(to left, rgba(0,0,0,.85), rgba(0,0,0,0.0))
+        .arrow
+          margin-left: 150px
+          img
+            transform: rotate(180deg)
+            height: 100%
+            width: 100%      
+
 .image-container
   background-color: #2c2e3e
   min-height: 100%
@@ -20,8 +134,13 @@
     .image
       height: 200px
       width: 300px
-      margin-top: 25px
+      margin-top: 10px
       position: relative
+      cursor: pointer
+      transition: 0.3s
+      &:hover
+        z-index: 10
+        transform: scale(1.1, 1.1)
       img
         height: 100%
         width: 100%
