@@ -1,6 +1,6 @@
 app.controller 'GenresCtrl', [
-  '$scope', 'Genre', 'action', '$http', 'Upload' 
-  ($scope, Genre, action, $http, Upload) -> 
+  '$scope', 'Genre', 'Pack', 'action', '$http', 'Upload' 
+  ($scope, Genre, Pack, action, $http, Upload) -> 
     angular.element(document).ready(() ->
       new WOW(  {
         boxClass:     'wow',
@@ -31,23 +31,37 @@ app.controller 'GenresCtrl', [
 
 
       parallaxScroll = ()->
-          scrolled = $(window).scrollTop()
-          $('#town1').css('top',(0-(scrolled*0.4))+'px')
-          $('#town2').css('top',(0-(scrolled*0.3))+'px')
-          $('#town3').css('top',(0-(scrolled*0.1))+'px')
-          $('#back').css('top',(0-(scrolled*0.4))+'px')
-          if(scrolled > lastScrollTop)
-            $('.genres').removeClass('return')
-            if(scrolled > 250)
-              $('.genres').addClass('top')  
-          if(scrolled < lastScrollTop)
-            if(scrolled <= 250)
-              $('.genres').removeClass('top2')
-              $('.genres').addClass('return')
-            if(scrolled <= 100)
-              $('.genres').removeClass('top')                
-          lastScrollTop = scrolled
+        scrolled = $(window).scrollTop()
+        $('#town1').css('top',(0-(scrolled*0.4))+'px')
+        $('#town2').css('top',(0-(scrolled*0.3))+'px')
+        $('#town3').css('top',(0-(scrolled*0.1))+'px')
+        $('#back').css('top',(0-(scrolled*0.4))+'px')
+        if(scrolled > lastScrollTop)
+          $('.genres').removeClass('return')
+          if(scrolled > 250)
+            $('.genres').addClass('top')  
+        if(scrolled < lastScrollTop)
+          if(scrolled <= 250)
+            $('.genres').removeClass('top2')
+            $('.genres').addClass('return')
+          if(scrolled <= 100)
+            $('.genres').removeClass('top')                
+        lastScrollTop = scrolled
       
+      $scope.remove = (id)->
+        scrolled = $(window).scrollTop()
+        $('.modal-remove').addClass('open')
+        $('body').css('overflow-y', 'hidden')
+        $('.modal-remove').css('top', scrolled)  
+        $('.yes').click ()->
+          Genre.destroy(id: id)
+          $('.modal-remove').removeClass('open')
+          $('body').css('overflow-y', 'auto') 
+        $('.no').click ()->
+          $('.modal-remove').removeClass('open')
+          $('body').css('overflow-y', 'auto') 
+        ctrl.genres = Genre.query()
+
       $scope.create = () ->
         Upload.upload(
           url: '/genres'
@@ -61,7 +75,6 @@ app.controller 'GenresCtrl', [
 
     action 'show', (params) ->
       ctrl.genre = Genre.get({id: params.id})
-      console.log ctrl.genre
       $scope.create = () ->
         Upload.upload(
           url: '/packs'
@@ -70,6 +83,21 @@ app.controller 'GenresCtrl', [
           $('.modal-back-main').removeClass('open')
           $('body').css('overflow-y', 'auto')
           ctrl.genre = Genre.get({id: params.id})
+
+      $scope.remove = (id)->
+        scrolled = $(window).scrollTop()
+        $('.modal-remove').addClass('open')
+        $('body').css('overflow-y', 'hidden')
+        $('.modal-remove').css('top', scrolled)  
+        $('.yes').click ()->
+          Pack.destroy(id: id)
+          $('.modal-remove').removeClass('open')
+          $('body').css('overflow-y', 'auto') 
+        $('.no').click ()->
+          $('.modal-remove').removeClass('open')
+          $('body').css('overflow-y', 'auto') 
+        ctrl.genre = Genre.get({id: params.id})
+
 
     action 'price_list', () ->
 

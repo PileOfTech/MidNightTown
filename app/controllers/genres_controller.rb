@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :destroy]
   def index
     @genres = Genre.all.order(created_at: :desc)
   end
@@ -21,6 +21,14 @@ class GenresController < ApplicationController
     render json: @res, status: status_code 
   end
   
+  def destroy
+    genre = Genre.find(params[:id])
+    genre.destroy
+    @res = {success: true, msg: 'Удалено'}
+    status_code = 200
+    render json: @res, status: status_code 
+  end
+
   def price_list
     render :price_list
   end

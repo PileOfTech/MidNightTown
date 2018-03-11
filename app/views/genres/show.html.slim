@@ -1,3 +1,10 @@
+.modal-remove
+  .modal
+    .question Вы действительно хотите удалить элемент?
+    .buttons
+      button.yes Да
+      button.no Нет
+
 .modal-back-main
   .modal.pack-modal
     .close
@@ -37,6 +44,8 @@
       div ng-if="$index%2==0"
         .pack
           .cover
+            -if user_signed_in?
+              .delete ng-click="remove(pack.id)"          
             a.background ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
               .text ПЕРЕЙТИ
             img src="{{pack.cover.url}}"
@@ -55,6 +64,8 @@
               .text ng-bind="pack.name"               
             p.rigth &emsp;&emsp;&emsp;&nbsp;{{pack.description}}      
           .cover
+            -if user_signed_in?
+              .delete ng-click="remove(pack.id)"            
             a.background ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
               .text ПЕРЕЙТИ          
             img src="{{pack.cover.url}}"

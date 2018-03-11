@@ -1,3 +1,21 @@
+.modal-remove
+  .modal
+    .question Вы действительно хотите удалить элемент?
+    .buttons
+      button.yes Да
+      button.no Нет
+.modal-form-back
+  .modal
+    .close.cl-form
+    .form
+      .field
+        label Изображение
+        .file
+          .name ng-bind="file.name" 
+          button ngf-select="" ng-model="file" name="file" ngf-resize="{width: 1000, height: 800}"Загрузить  
+      .image
+        img ngf-thumbnail="file"
+      button.create ng-click="create()" Создать       
 .modal-back
   .close
   .modal
@@ -16,11 +34,13 @@
 .image-container.not-scrolling
   .images
     div ng-repeat="image in ctrl.images"
-      .image id="{{$index}}" ng-click="modal($index)"
-        img src="{{image.image.url}}" 
+      .image id="{{$index}}"
+        -if user_signed_in?
+          .delete ng-click="remove(image.id)"
+        img src="{{image.image.url}}" ng-click="modal($index)" 
 
     -if user_signed_in?
-      .image.add ng-click="create()"
+      .image.add ng-click="add()"
         .modal-click
           .plus
             =image_tag "plus.png"

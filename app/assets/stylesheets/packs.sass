@@ -5,6 +5,91 @@ $pink: #9F1E32
 $sky: #2c2e3e
 $purple: #640247
 
+
+.close
+  height: 30px
+  width: 30px
+  background-image: url("close")
+  background-size: cover
+  position: absolute
+  right: 30px
+  top: 30px
+  transition: 0.3s
+  z-index: 20
+  &:hover
+    transform: scale(1.1, 1.1)
+    cursor: pointer
+
+.file
+  margin-top: 10px
+  display: flex
+  justify-content: space-between
+  .name
+    color: white
+  button
+    border: 0px solid
+    color: white
+    width: 130px
+    height: 25px
+    background-color: $purple
+    font-weight: bolder
+    &:hover
+      transform: scale(1.1, 1.1) 
+
+.modal-form-back
+  display: none
+  position: absolute
+  height: 100%
+  width: 100%
+  background-color: rgba(0,0,0,0.9)
+  z-index: 50
+  .modal
+    z-index: 30
+    position: relative
+    height: 500px
+    width: 500px
+    background-color: $pink
+    margin: 0px auto
+    margin-top: 80px 
+    .close
+      right: 15px
+      top: 15px
+    .form
+      position: relative
+      height: 450px
+      width: 450px
+      margin: 0px auto
+      top: 60px
+      .field
+        margin-top: 15px
+        width: 100%
+        label
+          color: white
+          font-weight: bolder        
+    .image 
+      margin-top: 25px
+      height: 280px
+      width: 450px
+      position: relative
+      img
+        height: 100%
+        width: auto       
+    button.create
+      position: relative
+      height: 30px
+      width: 300px
+      background-color: $purple
+      border: 0px solid
+      margin-top: 25px
+      margin-left: 75px
+      color: white
+      font-size: 16px
+      font-weight: bolder
+      cursor: pointer
+      transition: 0.5s
+      &:hover
+        transform: scale(1.1, 1.1)        
+
 .open
   display: block !important
 .modal-back
@@ -14,19 +99,6 @@ $purple: #640247
   width: 100%
   background-color: rgba(0,0,0,0.9)
   z-index: 50
-  .close
-    height: 30px
-    width: 30px
-    background-image: url("close")
-    background-size: cover
-    position: absolute
-    right: 30px
-    top: 30px
-    transition: 0.3s
-    z-index: 20
-    &:hover
-      transform: scale(1.1, 1.1)
-      cursor: pointer
   .modal
     z-index: 30
     position: relative
@@ -156,6 +228,21 @@ $purple: #640247
       position: relative
       cursor: pointer
       transition: 0.3s
+      .delete
+        z-index: 40
+        position: absolute
+        height: 30px
+        width: 30px 
+        border: 2px solid white
+        border-radius: 50%
+        right: 10px
+        top: 10px
+        cursor: pointer
+        background-image: url("close.svg")
+        background-size: cover
+        background-position: center
+        &:hover
+          transform: scale(1.1, 1.1) 
       .modal-click
         position: absolute
         width: 100%

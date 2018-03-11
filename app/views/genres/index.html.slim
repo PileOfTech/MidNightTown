@@ -1,3 +1,10 @@
+.modal-remove
+  .modal
+    .question Вы действительно хотите удалить элемент?
+    .buttons
+      button.yes Да
+      button.no Нет
+
 .modal-back-main
   .modal
     .close
@@ -30,6 +37,8 @@
   .genres 
     div ng-repeat="genre in ctrl.genres"
       .genre-bl
+        -if user_signed_in?
+          .delete ng-click="remove(genre.id)"
         a.link ui-sref="genre_path({id: genre.id})"
           .background
             .title ng-bind="genre.name"

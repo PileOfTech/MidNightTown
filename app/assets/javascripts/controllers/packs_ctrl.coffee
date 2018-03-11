@@ -1,6 +1,6 @@
 app.controller 'PacksCtrl', [
-  '$scope', '$http', 'action', 'Pack',
-($scope, $http, action, Pack) -> 
+  '$scope', '$http', 'action', 'Pack', 'Image', 'Upload'
+($scope, $http, action, Pack, Image, Upload) -> 
 
     ctrl = this
         
@@ -9,8 +9,38 @@ app.controller 'PacksCtrl', [
       $scope.date = ''
       $scope.watches = 0
 
-      $scope.create = ()->
-        console.log 'click'
+
+      $scope.remove = (id)->
+        scrolled = $(window).scrollTop()
+        $('.modal-remove').addClass('open')
+        $('body').css('overflow-y', 'hidden')
+        $('.modal-remove').css('top', scrolled)  
+        $('.yes').click ()->
+          Image.destroy(id: id)
+          $('.modal-remove').removeClass('open')
+          $('body').css('overflow-y', 'auto') 
+          pack = Image.get {id: params.id}, (res)->
+            ctrl.images = res.images
+        $('.no').click ()->
+          $('.modal-remove').removeClass('open')
+          $('body').css('overflow-y', 'auto') 
+
+
+      $scope.create = () ->
+        Upload.upload(
+          url: '/download'
+          data: {file: $scope.file, pack_id: params.id}
+        ).then (res)->
+          $('.modal-form-back').removeClass('open')
+          $('body').css('overflow-y', 'auto')
+          pack = Pack.get {id: params.id}, (res)->
+            ctrl.images = res.images
+
+      $scope.add = ()->
+        scrolled = $(window).scrollTop()
+        $('.modal-form-back').addClass('open')
+        $('body').css('overflow-y', 'hidden')
+        $('.modal-form-back').css('top', scrolled)        
 
       increment = (image_id)->
         $http.post("/images", {image_id: image_id}).then((response) ->
@@ -58,7 +88,11 @@ app.controller 'PacksCtrl', [
       $('.close').click ()->
         $('.modal-back').removeClass('open')
         $('body').css('overflow-y', 'auto')
-        
+      
+      $('.cl-form').click ()->
+        $('.modal-form-back').removeClass('open')
+        $('body').css('overflow-y', 'auto')
+                
       $('.arrow-side.left').click ()->
         Last()
       $('.arrow-side.right').click ()->
@@ -74,7 +108,6 @@ app.controller 'PacksCtrl', [
 
       pack = Pack.get {id: params.id}, (res)->
         ctrl.images = res.images
-        console.log ctrl.images[0]
        
 
     return

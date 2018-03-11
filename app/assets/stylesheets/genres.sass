@@ -7,6 +7,43 @@ $sky: #2c2e3e
 
 .open
   display: block !important
+.modal-remove
+  display: none
+  position: absolute
+  height: 100%
+  width: 100%
+  z-index: 110
+  background-color: rgba(0,0,0,0.8)
+  .modal
+    width: 400px 
+    height: 150px 
+    background-color: $pink
+    z-index: 120
+    margin: 0px auto
+    margin-top: 200px 
+    .question
+      color: white
+      font-weight: bolder 
+      text-align: center
+      padding-top: 25px
+    .buttons
+      width: 350px
+      height: 40px
+      margin: 0px auto
+      margin-top: 25px
+      display: flex
+      justify-content: space-between
+      button
+        height: 40px
+        width: 150px 
+        border: 0px
+        background-color: $purple
+        color: white
+        cursor: pointer
+        font-size: 16px
+        font-weight: bolder
+        &:hover
+          transform: scale(1.1, 1.1)
 .modal-back-main
   display: none
   position: absolute
@@ -117,22 +154,7 @@ $sky: #2c2e3e
           margin-top: 10px
           resize: none
           width: 100%
-          height: 165px          
-      //   .file
-      //     margin-top: 10px
-      //     display: flex
-      //     justify-content: space-between
-      //     .name
-      //       color: white
-      //     button
-      //       border: 0px solid
-      //       color: white
-      //       width: 130px
-      //       height: 25px
-      //       background-color: $purple
-      //       font-weight: bolder
-      //       &:hover
-      //         transform: scale(1.1, 1.1)            
+          height: 165px                     
       .image
         height: calc(350px * 0.5)
         width: 350px
@@ -308,6 +330,21 @@ $sky: #2c2e3e
           height: 70px
           width: 70px
           margin: 60px auto
+      .delete
+        position: absolute
+        height: 40px
+        width: 40px
+        border: 2px solid white
+        border-radius: 50%
+        z-index: 100
+        right: 10px
+        top: 10px
+        cursor: pointer
+        background-image: url("close.svg")
+        background-size: cover
+        background-position: center
+        &:hover
+          transform: scale(1.1, 1.1)
       a.link
         position: absolute
         width: 100%
@@ -350,6 +387,9 @@ $sky: #2c2e3e
     color: white
     text-transform: uppercase
     width: initial
+    user-select: none
+    -moz-user-select: none
+    -webkit-user-select: none       
     .first-line
       visibility: hidden
       position: absolute
@@ -375,6 +415,7 @@ $sky: #2c2e3e
       white-space: nowrap
       z-index: 21
       animation: textShow $dur
+
 .small-t-anim
   $fon: #640247
   $dur: 2s
@@ -447,7 +488,7 @@ $sky: #2c2e3e
       width: 100%
       margin-top: 55px
       display: flex
-      .cover
+      .cover        
         display: relative
         height: 100%
         min-width: 500px
@@ -457,23 +498,40 @@ $sky: #2c2e3e
           .background
             height: 400px
             margin-top: 0px 
-            font-size: 30px !important 
             .text
-              transition: 0.2s
+              transition: 0.4s
               margin-top: 180px
+              font-size 
+              font-size: 30px !important 
+        .delete
+          position: absolute
+          height: 40px
+          width: 40px
+          border: 2px solid white
+          border-radius: 50%
+          z-index: 100
+          margin-left: 445px
+          margin-top: 10px
+          cursor: pointer
+          background-image: url("close.svg")
+          background-size: cover
+          background-position: center
+          &:hover
+            transform: scale(1.1, 1.1)              
         .background
-          transition: 0.5s
+          transition: 0.4s
           position: absolute
           margin-top: 400px
           height: 0px
           width: 500px
           background-color: rgba(0,0,0,0.9)
-          font-size: 0px
           .text
-            transition: 0.4s
+            z-index: 60
+            transition: 0.1s
             text-align: center
             font-family: 'open-sans'
-            margin-top: 300px   
+            margin-top: 0px  
+            font-size: 0px 
         img
           height: 100%
           width: 100%

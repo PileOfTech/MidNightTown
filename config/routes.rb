@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :genres, only: [:index, :show, :create] do
+  resources :genres, only: [:index, :show, :create, :destroy] do
     resources :packs, only: [:show]
   end
   get 'contacts', to: 'genres#contacts'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'images', to: 'packs#inc_views'
   post 'download', to: 'packs#download' 
   
-  resources :packs, only: [:show, :create] do
+  resources :packs, only: [:show, :create, :destroy] do
   end
+  resources :images, only: [:index, :show, :destroy]
 end

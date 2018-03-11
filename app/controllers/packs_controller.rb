@@ -1,5 +1,5 @@
 class PacksController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :destroy, :download]
   def show
     @pack = Pack.find(params[:id])
   end
@@ -15,7 +15,27 @@ class PacksController < ApplicationController
     end
     render json: @res, status: status_code
   end
-  
+
+  def destroy
+    pack = Pack.find(params[:id])
+    pack.destroy
+    @res = {success: true, msg: 'Удалено'}
+    status_code = 200
+    render json: @res, status: status_code 
+  end
+
+  def download
+    if (params[:file] and params[:pack_id]) 
+      Image.create(image: params[:file], pack_id: params[:pack_id])
+      @res = {success: true, msg: 'Успешно загружено'}
+      status_code = 200
+    else
+      @res = {success: false, msg: 'Не загружено'}
+      status_code = 400      
+    end
+    render json: @res, status: status_code
+  end
+
   def inc_views
     image_id = params[:image_id]
     @image = Image.find(image_id)
