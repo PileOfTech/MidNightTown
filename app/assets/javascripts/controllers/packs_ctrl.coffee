@@ -9,6 +9,9 @@ app.controller 'PacksCtrl', [
       $scope.date = ''
       $scope.watches = 0
 
+      $scope.create = ()->
+        console.log 'click'
+
       increment = (image_id)->
         $http.post("/images", {image_id: image_id}).then((response) ->
           $scope.watches = response["data"].watches
@@ -17,15 +20,7 @@ app.controller 'PacksCtrl', [
       Next = ()->
         if current + 1 <= ctrl.images.length - 1 then next = current + 1 else next = 0
         image = ctrl.images[next]
-        increment(image.id)
-        url = image.image.url
-        #$('.modal').css('background-image', 'url('+url+')')
-        $('.bigimage').attr("src", url);
-        width = document.getElementById("img").width
-        height = document.getElementById("img").height
-        delta =  height / 500
-        newW = width /delta
-        $('.modal').css('width', newW)        
+        setModal(image)     
         $scope.watches = image.image.watches
         $scope.date = Date.parse(image.created_at)
         current = next
@@ -33,38 +28,32 @@ app.controller 'PacksCtrl', [
       Last = ()->
         if current + 1 < ctrl.images.length - 1 then last = current + 1 else last = 0
         image = ctrl.images[last]
-        increment(image.id)
-        url = image.image.url
-        #$('.modal').css('background-image', 'url('+url+')')
-        $('.bigimage').attr("src", url);
-        width = document.getElementById("img").width
-        height = document.getElementById("img").height
-        delta =  height / 500
-        newW = width /delta
-        $('.modal').css('width', newW)        
+        setModal(image)      
         $scope.watches = image.image.watches
         $scope.date = Date.parse(image.created_at)
-        current = next
+        current = last
       
       $scope.modal = (index)->
         current = index
         image = ctrl.images[index]
+        setModal(image)
+        $scope.watches = ctrl.images[index].watches
+        $scope.date = Date.parse(ctrl.images[index].created_at)        
+        return
+
+      setModal = (image)->
         url = image.image.url
-        #$('.modal').css('background-image', 'url('+url+')')
-        $('#img').attr("src", url);
+        $('#img').attr("src", url)
         width = document.getElementById("img").width
         height = document.getElementById("img").height
         delta =  height / 500
         newW = width /delta
         $('.modal').css('width', newW)
-        $scope.watches = ctrl.images[index].watches
-        $scope.date = Date.parse(ctrl.images[index].created_at)
         $('body').css('overflow-y', 'hidden')
         scrolled = $(window).scrollTop()
         $('.modal-back').css('top', scrolled)
         $('.modal-back').addClass('open')
         increment(image.id)
-        return
 
       $('.close').click ()->
         $('.modal-back').removeClass('open')

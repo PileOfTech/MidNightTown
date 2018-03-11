@@ -20,7 +20,7 @@
         img src="{{image.image.url}}" 
 
     -if user_signed_in?
-      .image.add ng-click="modal()"
+      .image.add ng-click="create()"
         .modal-click
           .plus
             =image_tag "plus.png"
