@@ -1,6 +1,6 @@
 app.controller 'GenresCtrl', [
-  '$scope', 'Genre', 'action',  
-  ($scope, Genre, action) -> 
+  '$scope', 'Genre', 'action', '$http' 
+  ($scope, Genre, action, $http) -> 
     angular.element(document).ready(() ->
       new WOW(  {
         boxClass:     'wow',
@@ -17,6 +17,18 @@ app.controller 'GenresCtrl', [
           parallaxScroll();
       )
       lastScrollTop = 0
+
+      $('.close').click ()->
+        $('.modal-back-main').removeClass('open')
+        $('body').css('overflow-y', 'auto')
+
+
+      $scope.modal = ()->
+        $('.modal-back-main').addClass('open')
+        scrolled = $(window).scrollTop()
+        $('.modal-back-main').css('top', scrolled)
+        $('body').css('overflow-y', 'hidden')
+
       parallaxScroll = ()->
           scrolled = $(window).scrollTop()
           $('#town1').css('top',(0-(scrolled*0.4))+'px')
@@ -34,6 +46,11 @@ app.controller 'GenresCtrl', [
             if(scrolled <= 100)
               $('.genres').removeClass('top')                
           lastScrollTop = scrolled
+      
+      $scope.create = () ->
+        $http.post("/genres", {name: $scope.name, file: $scope.file}).then((response) ->
+          
+        )
 
       ctrl.genres = Genre.query()
 

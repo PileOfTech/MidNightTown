@@ -1,3 +1,18 @@
+.modal-back-main.open
+  .modal
+    .close
+      =image_tag "close.svg"
+    .form
+      .field
+        label Имя жанра
+        input ng-model="name" type='text' name="user[login]"
+      .field
+        label Изображение
+        .file
+          .name ng-bind="file.name" 
+          button ngf-select="" ng-model="file" name="file" ngf-resize="{width: 300, height: 200}"Загрузить
+      img.image ngf-thumbnail="file"
+      button.create ng-click="create()"  Создать
 .fon
   .bigtitle-c
     .bigtitle MidNigthTown
@@ -18,3 +33,13 @@
           .background
             .title ng-bind="genre.name"
           img src="{{genre.cover.url}}"
+    
+    -if user_signed_in?
+      .genre-bl.add ng-click="modal()"
+        .modal-click
+          .plus
+            =image_tag "plus.png"
+
+
+  -if user_signed_in?
+    = link_to('Logout', destroy_user_session_path, method: :delete, class: 'logout')

@@ -1,0 +1,16 @@
+.loginpage
+  .purple-back
+    .form-cont
+      .title АВТОРИЗАЦИЯ
+      form novalidate="" name="form" ng-submit="commit()"
+        .field
+            label for="user[login]" Логин 
+            input ng-model="ctrl.data.email" type='text' name="user[login]"
+
+        .field 
+            label for="user[password]" Пароль            
+            input type='password' ng-model="ctrl.data.password" name="user[password]"
+        
+        .field
+          button.submit type="submit" ВОЙТИ
+    

@@ -14,7 +14,7 @@
               .text ПЕРЕЙТИ
             img src="{{pack.cover.url}}"
           .desc        
-            a.text-cont ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
+            a.small-t-anim ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
               .first-line.wow
               .second-line.wow
               .text ng-bind="pack.name"           
@@ -22,7 +22,7 @@
       div ng-if="$index%2==1"
         .pack
           .desc
-            a.text-cont.rigth ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"   
+            a.small-t-anim.rigth ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"   
               .first-line.wow
               .second-line.wow
               .text ng-bind="pack.name"               

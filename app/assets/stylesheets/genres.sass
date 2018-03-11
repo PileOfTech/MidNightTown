@@ -1,6 +1,94 @@
 // Place all the styles related to the Genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
+$purple: #640247
+$pink: #9F1E32
+$sky: #2c2e3e
+
+.open
+  display: block !important
+.modal-back-main
+  display: none
+  position: absolute
+  height: 100%
+  width: 100%
+  z-index: 100
+  background-color: rgba(0,0,0,0.8)
+  .modal
+    z-index: 101
+    position: relative
+    height: 500px
+    width: 400px
+    background-color: $pink
+    margin: 0px auto
+    top: 75px
+    .close
+      position: absolute
+      height: 40px
+      width: 40px
+      right: 5px
+      top: 5px
+      transition: 0.5s
+      cursor: pointer
+      &:hover
+        transform: scale(1.1, 1.1)
+      img
+        position: relative
+        height: 100%
+        width: 100%
+    .form
+      position: relative
+      height: 400px
+      width: 350px
+      margin: 0px auto
+      top: 50px
+      .field
+        margin-top: 15px
+        label
+          color: white
+          font-weight: bolder
+        input
+          margin-top: 10px
+          width: 100%
+          height: 25px
+        .file
+          margin-top: 10px
+          display: flex
+          justify-content: space-between
+          .name
+            color: white
+          button
+            border: 0px solid
+            color: white
+            width: 130px
+            height: 25px
+            background-color: $purple
+            font-weight: bolder
+            &:hover
+              transform: scale(1.1, 1.1)            
+      .image
+        height: calc(350px * 0.5)
+        width: 350px
+        background-size: cover
+        background-position: center 
+        margin-top: 25px
+        background-image: white
+
+      button.create
+        position: relative
+        height: 30px
+        width: 200px
+        background-color: $purple
+        border: 0px solid
+        margin-top: 25px
+        margin-left: 75px
+        color: white
+        font-size: 16px
+        font-weight: bolder
+        cursor: pointer
+        transition: 0.5s
+        &:hover
+          transform: scale(1.1, 1.1)
 
 .fon
   height: calc(100% - 100px)
@@ -67,6 +155,17 @@
   height: auto
   margin: 0px auto
   justify-content: space-around  
+  .logout
+    position: absolute
+    height: 30px
+    width: 200px
+    background-color: $purple
+    z-index: 100
+    right: 0
+    bottom: 0
+    color: white
+    text-align: center
+    padding-top: 7px
   .back
     position: absolute
     width: 100%
@@ -105,7 +204,10 @@
     margin-bottom: 50px
     display: flex
     flex-wrap: wrap
-    justify-content: space-around    
+    justify-content: space-around 
+    .add
+      border: 1px solid white
+      background-color: $sky
     .genre-bl
       height: 200px
       width: 300px
@@ -126,11 +228,19 @@
           .title
             font-size: 45px !important
             margin-top: 60px !important    
+      .modal-click
+        position: absolute
+        width: 100%
+        height: 100%
+        cursor: pointer        
+        .plus
+          height: 70px
+          width: 70px
+          margin: 60px auto
       a.link
         position: absolute
         width: 100%
-        height: 100% 
-        background-color: grey !important           
+        height: 100%          
         .background
           position: absolute
           width: 0%
@@ -146,10 +256,92 @@
             color: white
             font-size: 0px
             margin-top: 0px
-            font-family: 'third-rail', 'romantique'
+            font-family: 'city-flowers'
       img
         height: 100%
         width: 100%
+
+
+.block
+  position: relative
+  width: 100%
+  height: 70px
+  float: left
+  margin-bottom: 30px
+  .text-cont
+    $fon: #640247
+    $dur: 2s
+    $font: 65px
+    $height: 70px
+    position: absolute
+    height: $height
+    font-size: 65px
+    color: white
+    text-transform: uppercase
+    width: initial
+    .first-line
+      visibility: hidden
+      position: absolute
+      height: $height
+      background-color: $fon
+      animation: firstSlide $dur
+      z-index: 20
+    .second-line
+      visibility: hidden
+      position: absolute
+      right: 0px
+      height: $height
+      background-color: $fon
+      animation: secondSlide $dur
+      z-index: 99
+    .text
+      font-family: 'impact'
+      visibility: visible
+      font-family: sans-serif
+      font-size: $font
+      color: white
+      font-weight: 900
+      white-space: nowrap
+      z-index: 21
+      animation: textShow $dur
+.small-t-anim
+  $fon: #640247
+  $dur: 2s
+  $font: 25px
+  $height: 30px
+  margin-left: 25px
+  position: absolute
+  height: 75px
+  font-size: 65px
+  color: white
+  text-transform: uppercase
+  width: initial
+  .first-line
+    visibility: hidden
+    position: absolute
+    height: $height
+    background-color: $fon
+    animation: firstSlide $dur
+    z-index: 20
+  .second-line
+    visibility: hidden
+    position: absolute
+    right: 0px
+    height: $height
+    background-color: $fon
+    animation: secondSlide $dur
+    z-index: 99
+  .text
+    font-family: 'impact'
+    visibility: visible
+    font-family: sans-serif
+    font-size: $font
+    color: white
+    font-weight: 900
+    white-space: nowrap
+    z-index: 21
+    animation: textShow $dur
+    font-weight: 900
 
 
 .main-background
@@ -158,49 +350,6 @@
   height: auto
   position: relative
   background-color: #2c2e3e
-  .block
-    position: relative
-    width: 100%
-    height: 70px
-    float: left
-    margin-bottom: 30px
-    .text-cont
-      $fon: #640247
-      $dur: 2s
-      $font: 65px
-      $height: 70px
-      position: absolute
-      height: $height
-      font-size: 65px
-      color: white
-      text-transform: uppercase
-      width: initial
-      .first-line
-        visibility: hidden
-        position: absolute
-        height: $height
-        background-color: $fon
-        animation: firstSlide $dur
-        z-index: 20
-      .second-line
-        visibility: hidden
-        position: absolute
-        right: 0px
-        height: $height
-        background-color: $fon
-        animation: secondSlide $dur
-        z-index: 99
-      .text
-        font-family: 'impact'
-        visibility: visible
-        font-family: sans-serif
-        font-size: $font
-        color: white
-        font-weight: 900
-        white-space: nowrap
-        z-index: 21
-        animation: textShow $dur
-
   .packs-cont
     position: relative
     height: auto
@@ -252,44 +401,6 @@
 
         .rigth
           margin-left: 0px !important
-        .text-cont
-          $fon: #640247
-          $dur: 2s
-          $font: 25px
-          $height: 30px
-          margin-left: 25px
-          position: absolute
-          height: 75px
-          font-size: 65px
-          color: white
-          text-transform: uppercase
-          width: initial
-          .first-line
-            visibility: hidden
-            position: absolute
-            height: $height
-            background-color: $fon
-            animation: firstSlide $dur
-            z-index: 20
-          .second-line
-            visibility: hidden
-            position: absolute
-            right: 0px
-            height: $height
-            background-color: $fon
-            animation: secondSlide $dur
-            z-index: 99
-          .text
-            font-family: 'impact'
-            visibility: visible
-            font-family: sans-serif
-            font-size: $font
-            color: white
-            font-weight: 900
-            white-space: nowrap
-            z-index: 21
-            animation: textShow $dur
-            font-weight: 900
 
         .title
           font-size: 25px
@@ -304,6 +415,179 @@
           width: 90%
         p.rigth
           padding-left: 0px
+
+.pricelist, .contactpage
+  position: absolute
+  width: 100%
+  min-height: 100%
+  height: auto
+  background-color: #2c2e3e
+
+.pricelist
+  .title
+    position: relative
+    width: 930px
+    margin: 0px auto  
+    margin-top: 100px
+  .prices-cont
+    width: 930px
+    margin: 0px auto
+    margin-top: 230px
+    .price-block
+      margin-bottom: 80px
+      width: 100%
+      height: 350px
+      display: flex
+      .cover
+        $size: 70%
+        $width: 6px        
+        background-color: grey
+        display: relative
+        height: 100%
+        min-width: 500px
+        max-width: 500px
+        cursor: pointer
+        position: relative
+        &:hover
+          transition: 0.5s
+          z-index: 100
+          .background
+            transition: 0.5s
+            width: 100% !important
+            height: 100% !important
+            left: 0% !important
+            top: 0% !important
+            background-color: rgba(0, 0, 0, 0.8)
+            cursor: pointer
+            .cov-title
+              font-size: 50px
+              top: 140px
+          .left-board
+            transition: 0.5s
+            .bot
+              transition: 0.5s
+              height: 100%
+              top: -$width  
+            .right
+              transition: 0.5s
+              width: 100%
+              left: -$width
+          .right-board
+            transition: 0.5s
+            .top
+              transition: 0.5s
+              height: 100%
+              bottom: -$width  
+            .left
+              transition: 0.5s
+              width: 100%
+              right: -$width                              
+        .background
+          position: absolute
+          width: 0%
+          height: 0%
+          left: 50%
+          top: 50%
+          margin: 0 auto
+          background-color: rgba(0, 0, 0, 0.5)
+          transition: 0.2s
+          .cov-title
+            position: relative
+            font-family: 'city-flowers'
+            color: white 
+            background-color: none
+            top: 200px
+            font-size: 0px 
+            text-align: center !important
+
+        .left-board
+          top: -$width
+          left: -$width
+          position: absolute
+          height: $size
+          width: $size
+          .right
+            position: absolute
+            left: 0px
+            height: $width
+            width: 0%
+            background-color: $pink
+          .bot
+            position: absolute
+            top: 0px          
+            height: 0%
+            width: $width
+            background-color: $pink
+        .right-board
+          bottom: -$width
+          right: -$width
+          position: absolute
+          height: $size
+          width: $size
+          .left
+            position: absolute
+            right: 0px
+            bottom: 0px
+            height: $width
+            width: 0%
+            background-color: $pink
+          .top
+            position: absolute
+            right: 0px
+            bottom: 0px          
+            height: 0%
+            width: $width
+            background-color: $pink
+
+        img 
+          width: 100%
+          height: 100%
+      .desc
+        width: 100%
+        height: 100%
+        position: relative
+        .small-t-anim
+          margin-left: 50px
+          user-select: none
+          -moz-user-select: none
+          -webkit-user-select: none           
+        p
+          color: white
+          padding-top: 25px
+          padding-left: 50px
+          width: 90%
+          font-size: 14px
+        p.rigth
+          padding-left: 0px
+        .price
+          position: absolute
+          height: 35px
+          width: 250px
+          bottom: 0
+          right: 0
+          background-color: $purple
+          color: white
+          .cont
+            display: flex
+            width: 130px
+            margin: 0px auto
+            justify-content: space-between
+            user-select: none
+            -moz-user-select: none
+            -webkit-user-select: none             
+            .pr-icon
+              height: 18px 
+              width: 18px
+              background-image: url("card.png")
+              background-size: cover
+              margin-top: 7px
+            .pr-text
+              width: 100px
+              height: 30px
+              font-size: 16px
+              padding-top: 5px
+
+
 @keyframes Top
   0%
     margin-top: 100px

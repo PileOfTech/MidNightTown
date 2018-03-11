@@ -8,6 +8,11 @@ class GenresController < ApplicationController
     @packs = @genre.packs
   end
 
+  def create
+    puts "#{params[:file]}"
+    
+  end
+  
   def price_list
     render :price_list
   end

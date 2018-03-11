@@ -6,6 +6,8 @@ html ng-app="app"
     = javascript_include_tag 'application'
   body
     .navbar
+      a.price-list ui-sref="price_list_path" Услуги
+      a.contacts ui-sref="contacts_path" Контакты
       a.logo ui-sref="root_path"
         =image_tag("logo.png")
     
