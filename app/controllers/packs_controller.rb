@@ -1,23 +1,19 @@
 class PacksController < ApplicationController
-
+  before_action :authenticate_user!, only: [:create]
   def show
     @pack = Pack.find(params[:id])
   end
 
-  def download
-    puts ">>>> #{params[:file]}"
-    image =Image.new
-    begin   
-      image.image = params[:file]
-      if image.save!
-        @res = {success: true, msg: "File will be uploaded"}
-        status_code = 200
-      end
-    rescue ActiveRecord::RecordInvalid
-      @res = {success: false, msg: csv.errors.messages[:csv][0]}
-      status_code = 400
-    end  
-    render json: @res, status: status_code       
+  def create
+    if (params[:data][:name] and params[:data][:description] and params[:data][:file] and params[:genre_id]) 
+      Pack.create(name: params[:data][:name], description: params[:data][:description], cover: params[:data][:file], genre_id: params[:genre_id])
+      @res = {success: true, msg: 'Успешно загружено'}
+      status_code = 200
+    else
+      @res = {success: false, msg: 'Не создано'}
+      status_code = 400      
+    end
+    render json: @res, status: status_code
   end
   
   def inc_views

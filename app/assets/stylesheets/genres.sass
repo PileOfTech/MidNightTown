@@ -12,8 +12,70 @@ $sky: #2c2e3e
   position: absolute
   height: 100%
   width: 100%
-  z-index: 100
+  z-index: 110
   background-color: rgba(0,0,0,0.8)
+  .pack-modal
+    width: 700px !important
+    height: 470px !important
+    z-index: 120
+    top: 100px !important
+    button.create
+      position: relative
+      height: 40px
+      width: 250px
+      background-color: $purple
+      border: 0px
+      margin-top: 25px
+      color: white
+      font-size: 16px
+      font-weight: bold
+      margin-left: calc((700px - 250px)/2)
+      cursor: pointer
+      &:hover
+        transform: scale(1.1, 1.1)
+    .container-flex
+      display: flex
+      flex-wrap: nowrap
+      justify-content: space-around
+      .form-flex
+        height: 350px
+        width: 300px
+        margin-top: 30px
+        .label
+          font-size: 16px
+          color: white
+          font-weight: bolder
+        .form
+          width: 100%
+          height: 100%
+          top: 0px
+        .image
+          width: calc(500px * 0.6)
+          height: calc(400px * 0.6)
+          margin-top: 20px
+          background-image: url("no-img.jpg")
+          background-size: cover
+          background-position: center
+          img
+            width: 100%
+            height: 100%
+
+  .file
+    margin-top: 10px
+    display: flex
+    justify-content: space-between
+    .name
+      color: white
+    button
+      border: 0px solid
+      color: white
+      width: 130px
+      height: 25px
+      background-color: $purple
+      font-weight: bolder
+      &:hover
+        transform: scale(1.1, 1.1)            
+      
   .modal
     z-index: 101
     position: relative
@@ -24,10 +86,10 @@ $sky: #2c2e3e
     top: 75px
     .close
       position: absolute
-      height: 40px
-      width: 40px
-      right: 5px
-      top: 5px
+      height: 30px
+      width: 30px
+      right: 10px
+      top: 10px
       transition: 0.5s
       cursor: pointer
       &:hover
@@ -51,28 +113,37 @@ $sky: #2c2e3e
           margin-top: 10px
           width: 100%
           height: 25px
-        .file
+        textarea
           margin-top: 10px
-          display: flex
-          justify-content: space-between
-          .name
-            color: white
-          button
-            border: 0px solid
-            color: white
-            width: 130px
-            height: 25px
-            background-color: $purple
-            font-weight: bolder
-            &:hover
-              transform: scale(1.1, 1.1)            
+          resize: none
+          width: 100%
+          height: 165px          
+      //   .file
+      //     margin-top: 10px
+      //     display: flex
+      //     justify-content: space-between
+      //     .name
+      //       color: white
+      //     button
+      //       border: 0px solid
+      //       color: white
+      //       width: 130px
+      //       height: 25px
+      //       background-color: $purple
+      //       font-weight: bolder
+      //       &:hover
+      //         transform: scale(1.1, 1.1)            
       .image
         height: calc(350px * 0.5)
         width: 350px
         background-size: cover
-        background-position: center 
         margin-top: 25px
-        background-image: white
+        background-image: url("no-img.jpg")
+        background-size: cover
+        background-position: center
+        img
+          height: 100%
+          width: 100%
 
       button.create
         position: relative
@@ -357,6 +428,20 @@ $sky: #2c2e3e
     margin: 0px auto
     padding-top: 100px
     padding-bottom: 50px
+    .create
+      position: absolute
+      height: 60px
+      width: 60px
+      right: 0
+      border-radius: 50%
+      background-image: url("plus.png")
+      background-size: cover
+      border: 2px solid white
+      cursor: pointer
+      z-index: 100
+      &:hover
+        transform: scale(1.1, 1.1)
+
     .pack
       height: 400px
       width: 100%

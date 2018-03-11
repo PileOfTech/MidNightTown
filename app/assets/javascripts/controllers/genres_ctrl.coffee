@@ -1,6 +1,6 @@
 app.controller 'GenresCtrl', [
-  '$scope', 'Genre', 'action', '$http' 
-  ($scope, Genre, action, $http) -> 
+  '$scope', 'Genre', 'action', '$http', 'Upload' 
+  ($scope, Genre, action, $http, Upload) -> 
     angular.element(document).ready(() ->
       new WOW(  {
         boxClass:     'wow',
@@ -12,22 +12,23 @@ app.controller 'GenresCtrl', [
       }).init()
     )
     ctrl = this
+    $('.close').click ()->
+      $('.modal-back-main').removeClass('open')
+      $('body').css('overflow-y', 'auto')
+
+
+    $scope.modal = ()->
+      scrolled = $(window).scrollTop()
+      $('.modal-back-main').addClass('open')
+      $('body').css('overflow-y', 'hidden')
+      $('.modal-back-main').css('top', scrolled)
+
     action 'index', () ->
       $(window).bind('scroll', (e)->
           parallaxScroll();
       )
       lastScrollTop = 0
 
-      $('.close').click ()->
-        $('.modal-back-main').removeClass('open')
-        $('body').css('overflow-y', 'auto')
-
-
-      $scope.modal = ()->
-        $('.modal-back-main').addClass('open')
-        scrolled = $(window).scrollTop()
-        $('.modal-back-main').css('top', scrolled)
-        $('body').css('overflow-y', 'hidden')
 
       parallaxScroll = ()->
           scrolled = $(window).scrollTop()
@@ -48,14 +49,27 @@ app.controller 'GenresCtrl', [
           lastScrollTop = scrolled
       
       $scope.create = () ->
-        $http.post("/genres", {name: $scope.name, file: $scope.file}).then((response) ->
-          
-        )
+        Upload.upload(
+          url: '/genres'
+          data: {name: $scope.name, file: $scope.file}
+        ).then (res)->
+          $('.modal-back-main').removeClass('open')
+          $('body').css('overflow-y', 'auto')
+          ctrl.genres = Genre.query()
 
       ctrl.genres = Genre.query()
 
     action 'show', (params) ->
       ctrl.genre = Genre.get({id: params.id})
+      console.log ctrl.genre
+      $scope.create = () ->
+        Upload.upload(
+          url: '/packs'
+          data: {data: ctrl.data, genre_id: params.id}
+        ).then (res)->
+          $('.modal-back-main').removeClass('open')
+          $('body').css('overflow-y', 'auto')
+          ctrl.genre = Genre.get({id: params.id})
 
     action 'price_list', () ->
 

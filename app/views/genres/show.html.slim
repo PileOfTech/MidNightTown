@@ -1,5 +1,32 @@
+.modal-back-main
+  .modal.pack-modal
+    .close
+      =image_tag "close.svg"
+    .container-flex
+      .form-flex
+        .form
+          .field
+            label Название набора
+            input ng-model="ctrl.data.name" type='text' name="name"
+          .field
+            label Описание
+            textarea ng-model="ctrl.data.description" type='text' name="description" 
+          .field
+            label Изображение
+            .file
+              .name ng-bind="ctrl.data.file.name" 
+              button ngf-select="" ng-model="ctrl.data.file" name="file" ngf-resize="{width: 1000, height: 800}"Загрузить               
+      .form-flex
+        .label Предпросмотр
+        .image
+          img ngf-thumbnail="ctrl.data.file"
+    button.create ng-click="create()" Создать
+
+
 .main-background
   .packs-cont 
+    -if user_signed_in?
+      .create ng-click="modal()"
     .block
       .text-cont
         .first-line

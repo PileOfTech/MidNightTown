@@ -268,40 +268,6 @@ angular.module("oxymoron.config.states", [])
           }
         })
       
-        .state('new_genre_path', {
-          url: '/genres/new',
-          
-          templateUrl: function(params) {
-            params['ng-view']='';
-            
-            
-            return Routes['new_genre_path'](params);
-          },
-          controller: 'GenresCtrl as ctrl',
-          resolve: {
-            action: ['$stateParams', function ($stateParams) {
-              return resolve('new', $stateParams)
-            }]
-          }
-        })
-      
-        .state('edit_genre_path', {
-          url: '/genres/:id/edit',
-          
-          templateUrl: function(params) {
-            params['ng-view']='';
-            
-            
-            return Routes['edit_genre_path'](params);
-          },
-          controller: 'GenresCtrl as ctrl',
-          resolve: {
-            action: ['$stateParams', function ($stateParams) {
-              return resolve('edit', $stateParams)
-            }]
-          }
-        })
-      
         .state('genre_path', {
           url: '/genres/:id',
           
@@ -772,7 +738,7 @@ angular.module("oxymoron.directives", ['oxymoron.directives.fileupload', 'oxymor
 (function () {
   var Routes = function () {
     var self = this,
-        routes = {"rails_info_properties":{"defaults":{},"path":"/rails/info/properties"},"rails_info_routes":{"defaults":{},"path":"/rails/info/routes"},"rails_info":{"defaults":{},"path":"/rails/info"},"rails_mailers":{"defaults":{},"path":"/rails/mailers"},"root":{"defaults":{},"path":"/"},"new_user_session":{"defaults":{},"path":"/users/sign_in"},"user_session":{"defaults":{},"path":"/users/sign_in"},"destroy_user_session":{"defaults":{},"path":"/users/sign_out"},"new_user_password":{"defaults":{},"path":"/users/password/new"},"edit_user_password":{"defaults":{},"path":"/users/password/edit"},"user_password":{"defaults":{},"path":"/users/password"},"cancel_user_registration":{"defaults":{},"path":"/users/cancel"},"new_user_registration":{"defaults":{},"path":"/users/sign_up"},"edit_user_registration":{"defaults":{},"path":"/users/edit"},"user_registration":{"defaults":{},"path":"/users"},"genre_pack":{"defaults":{},"path":"/genres/:genre_id/packs/:id"},"genres":{"defaults":{},"path":"/genres"},"new_genre":{"defaults":{},"path":"/genres/new"},"edit_genre":{"defaults":{},"path":"/genres/:id/edit"},"genre":{"defaults":{},"path":"/genres/:id"},"contacts":{"defaults":{},"path":"/contacts"},"price_list":{"defaults":{},"path":"/price_list"},"images":{"defaults":{},"path":"/images"},"download":{"defaults":{},"path":"/download"},"pack":{"defaults":{},"path":"/packs/:id"}};
+        routes = {"rails_info_properties":{"defaults":{},"path":"/rails/info/properties"},"rails_info_routes":{"defaults":{},"path":"/rails/info/routes"},"rails_info":{"defaults":{},"path":"/rails/info"},"rails_mailers":{"defaults":{},"path":"/rails/mailers"},"root":{"defaults":{},"path":"/"},"new_user_session":{"defaults":{},"path":"/users/sign_in"},"user_session":{"defaults":{},"path":"/users/sign_in"},"destroy_user_session":{"defaults":{},"path":"/users/sign_out"},"new_user_password":{"defaults":{},"path":"/users/password/new"},"edit_user_password":{"defaults":{},"path":"/users/password/edit"},"user_password":{"defaults":{},"path":"/users/password"},"cancel_user_registration":{"defaults":{},"path":"/users/cancel"},"new_user_registration":{"defaults":{},"path":"/users/sign_up"},"edit_user_registration":{"defaults":{},"path":"/users/edit"},"user_registration":{"defaults":{},"path":"/users"},"genre_pack":{"defaults":{},"path":"/genres/:genre_id/packs/:id"},"genres":{"defaults":{},"path":"/genres"},"genre":{"defaults":{},"path":"/genres/:id"},"contacts":{"defaults":{},"path":"/contacts"},"price_list":{"defaults":{},"path":"/price_list"},"images":{"defaults":{},"path":"/images"},"download":{"defaults":{},"path":"/download"},"packs":{"defaults":{},"path":"/packs"},"pack":{"defaults":{},"path":"/packs/:id"}};
 
     self.defaultParams = {}
 

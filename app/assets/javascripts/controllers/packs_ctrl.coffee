@@ -19,7 +19,13 @@ app.controller 'PacksCtrl', [
         image = ctrl.images[next]
         increment(image.id)
         url = image.image.url
-        $('.modal').css('background-image', 'url('+url+')')
+        #$('.modal').css('background-image', 'url('+url+')')
+        $('.bigimage').attr("src", url);
+        width = document.getElementById("img").width
+        height = document.getElementById("img").height
+        delta =  height / 500
+        newW = width /delta
+        $('.modal').css('width', newW)        
         $scope.watches = image.image.watches
         $scope.date = Date.parse(image.created_at)
         current = next
@@ -29,7 +35,13 @@ app.controller 'PacksCtrl', [
         image = ctrl.images[last]
         increment(image.id)
         url = image.image.url
-        $('.modal').css('background-image', 'url('+url+')')
+        #$('.modal').css('background-image', 'url('+url+')')
+        $('.bigimage').attr("src", url);
+        width = document.getElementById("img").width
+        height = document.getElementById("img").height
+        delta =  height / 500
+        newW = width /delta
+        $('.modal').css('width', newW)        
         $scope.watches = image.image.watches
         $scope.date = Date.parse(image.created_at)
         current = next
@@ -38,7 +50,13 @@ app.controller 'PacksCtrl', [
         current = index
         image = ctrl.images[index]
         url = image.image.url
-        $('.modal').css('background-image', 'url('+url+')')
+        #$('.modal').css('background-image', 'url('+url+')')
+        $('#img').attr("src", url);
+        width = document.getElementById("img").width
+        height = document.getElementById("img").height
+        delta =  height / 500
+        newW = width /delta
+        $('.modal').css('width', newW)
         $scope.watches = ctrl.images[index].watches
         $scope.date = Date.parse(ctrl.images[index].created_at)
         $('body').css('overflow-y', 'hidden')
@@ -67,6 +85,7 @@ app.controller 'PacksCtrl', [
 
       pack = Pack.get {id: params.id}, (res)->
         ctrl.images = res.images
+        console.log ctrl.images[0]
        
 
     return

@@ -1,6 +1,7 @@
 .modal-back
   .close
   .modal
+    img.bigimage#img
     .background
       .arrow-side.left
         .arrow
@@ -17,3 +18,9 @@
     div ng-repeat="image in ctrl.images"
       .image id="{{$index}}" ng-click="modal($index)"
         img src="{{image.image.url}}" 
+
+    -if user_signed_in?
+      .image.add ng-click="modal()"
+        .modal-click
+          .plus
+            =image_tag "plus.png"
