@@ -9,7 +9,6 @@ app.controller 'PacksCtrl', [
       $scope.date = ''
       $scope.watches = 0
 
-
       $scope.remove = (id)->
         scrolled = $(window).scrollTop()
         $('.modal-remove').addClass('open')

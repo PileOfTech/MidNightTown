@@ -730,14 +730,112 @@ $sky: #2c2e3e
               font-size: 16px
               padding-top: 5px
 
+.contactpage
+  overflow-y: hidden
+  .back-line
+    position: absolute
+    min-height: 100%
+    height: 100%
+    width: 100%
+    background-image: url("line.png")
+    background-size: 100%
+    background-repeat: repeat-y
+    .big-name
+      position: absolute
+      height: 280px
+      width: 700px
+      top: 340px
+      left: 60px
+      z-index: 100
+      color: white
+      font-family: 'dorothea'
+      font-size: 110px
+      letter-spacing: 30px
+      line-height: 90px
+      animation: nameAnim 1.5s
+    .left-bl
+      position: absolute
+      height: 210px
+      width: 500px
+      background-color: rgba(0,7,25,0.9)
+      bottom: 20px
+      left: 100px
+      z-index: 50
+      animation: Upper 1s
+      .contacts
+        position: absolute
+        height: 130px
+        width: 250px
+        margin-top: 100px
+        margin-left: 50px
+        .contact
+          display: flex
+          height: 20px
+          width: 100%
+          color: white
+          margin-top: 4px
+          font-family: 'open-sans'
+          font-size: 14px
+          .bold
+            font-weight: bolder
+          span
+            margin-left: 5px
+    .portret
+      position: absolute
+      height: 350px
+      width: 500px
+      top: 120px
+      left: 450px
+      z-index: 60
+      background-image: url("michel.png")
+      background-size: cover
+      animation: portretAnim 1s
+    .right-bl
+      z-index: 50
+      position: absolute
+      height: 250px
+      width: 500px
+      background-color: $pink
+      top: 150px
+      right: 0px
+      animation: contactFirst 0.8s
+      .text
+        margin-top: 70px
+        margin-left: 50px
+        height: 150px
+        width: 420px
+        color: white
+        font-size: 14px
+        font-family: 'open-sans'
 
-@keyframes Top
+@-webkit-keyframes nameAnim
+  0%
+    left: -700px
+  100%
+    left: 60px      
+@-webkit-keyframes portretAnim
+  0%
+    top: -350px
+  100%
+    top: 120px
+@-webkit-keyframes Upper
+  0%
+    bottom: -210px
+  100%
+    bottom: 20px
+
+@-webkit-keyframes contactFirst
+  0%
+    right: 100%
+  100%
+    right: 0%
+@-webkit-keyframes Top
   0%
     margin-top: 100px
   100%
     margin-top: -100px
 
-@keyframes Fix
+@-webkit-keyframes Fix
   0%
     margin-top: -100px
   100%
