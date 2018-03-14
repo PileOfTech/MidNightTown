@@ -31,21 +31,30 @@ app.controller 'GenresCtrl', [
 
 
       parallaxScroll = ()->
-        scrolled = $(window).scrollTop()
-        $('#town1').css('top',(0-(scrolled*0.4))+'px')
-        $('#town2').css('top',(0-(scrolled*0.3))+'px')
-        $('#town3').css('top',(0-(scrolled*0.1))+'px')
-        $('#back').css('top',(0-(scrolled*0.4))+'px')
-        if(scrolled > lastScrollTop)
-          $('.genres').removeClass('return')
-          if(scrolled > 250)
-            $('.genres').addClass('top')  
-        if(scrolled < lastScrollTop)
-          if(scrolled <= 250)
-            $('.genres').removeClass('top2')
-            $('.genres').addClass('return')
-          if(scrolled <= 100)
-            $('.genres').removeClass('top')                
+        if($(window).width() > 1000)
+          scrolled = $(window).scrollTop()
+          $('#town1').css('top',(0-(scrolled*0.6))+'px')
+          $('#town2').css('top',(0-(scrolled*0.3))+'px')
+          $('#town3').css('top',(0-(scrolled*0.1))+'px')
+          $('#back').css('top',(0-(scrolled*0.5))+'px')
+        else
+          scrolled = $(window).scrollTop()
+          $('#town1').css('top',(0-(scrolled*0.4))+'px')
+          $('#town2').css('top',(0-(scrolled*0.3))+'px')
+          $('#town3').css('top',(0-(scrolled*0.1))+'px')
+          $('#back').css('top',(0-(scrolled*0.4))+'px')
+
+        if($(window).width() > 1000)
+          if(scrolled > lastScrollTop)
+            $('.genres').removeClass('return')
+            if(scrolled > 250)
+              $('.genres').addClass('top')  
+          if(scrolled < lastScrollTop)
+            if(scrolled <= 250)
+              $('.genres').removeClass('top2')
+              $('.genres').addClass('return')
+            if(scrolled <= 100)
+              $('.genres').removeClass('top')                
         lastScrollTop = scrolled
       
       $scope.remove = (id)->
