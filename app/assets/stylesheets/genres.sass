@@ -25,7 +25,7 @@ $desctop: 1300px
   position: absolute
   height: 100%
   width: 100%
-  z-index: 110
+  z-index: 1100
   background-color: rgba(0,0,0,0.8)
   .modal
     width: 400px 
@@ -62,7 +62,7 @@ $desctop: 1300px
   position: absolute
   height: 100%
   width: 100%
-  z-index: 110
+  z-index: 1100
   background-color: rgba(0,0,0,0.8)
   .pack-modal
     width: 700px !important
@@ -318,112 +318,129 @@ $desctop: 1300px
     margin-top: -100px !important
   .return
     animation: Fix 0.5s
-    margin-top: 100px !important  
-  .genres
-    z-index: 12
-    margin-top: 100px
-    width: 930px
+    margin-top: 100px !important 
+  .border
+    width: 1150px
     height: auto
+    margin-top: 60px
     margin-bottom: 50px
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-around 
+    z-index: 200
+    border: 8px solid $pink
     @include mobile
-      width: 260px
-      margin-top: 10px
-      margin-bottom: 50px
-    .add
-      border: 1px solid white
-      background-color: $sky
-    .genre-bl
-      height: 200px
       width: 300px
-      margin-top: 10px
-      position: relative
+      border: 4px solid $pink
+      margin-bottom: 20px
+      margin-top: 20px
+    .genres
+      z-index: 12
+      width: 930px
+      height: auto
+      margin: 0px auto
+      margin-top: 90px
+      margin-bottom: 100px
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-around
       @include mobile
         width: 260px
-        margin-top: 20px
-        height: 160px
-      &:hover
-        transition: 0.5s
-        transform: scale(1.15, 1.15)
-        z-index: 100
-        .background
-          transition: 0.2s
-          width: 100% !important
-          height: 100% !important
-          left: 0% !important
-          top: 0% !important
-          background-color: rgba(0, 0, 0, 0.8)
-          cursor: pointer
-          @include mobile
-            height: 100% !important
-            width: 100% !important
-            left: 0 !important
-            top: 0 !important
-          .title
-            font-size: 45px !important
-            margin-top: 60px !important  
-            @include mobile
-              font-size: 32px !important
-              margin-top: 65px !important
-      .modal-click
-        position: absolute
-        width: 100%
-        height: 100%
-        cursor: pointer        
-        .plus
-          height: 70px
-          width: 70px
-          margin: 60px auto
-      .delete
-        position: absolute
-        height: 40px
-        width: 40px
-        border: 2px solid white
-        border-radius: 50%
-        z-index: 100
-        right: 10px
-        top: 10px
-        cursor: pointer
-        background-image: url("close.svg")
-        background-size: cover
-        background-position: center
+        margin-top: 10px
+        margin-bottom: 50px
+      .add
+        border: 1px solid white
+        background-color: $sky
+      .genre-bl
+        height: 200px
+        width: 300px
+        margin-top: 10px
+        position: relative
+        margin-bottom: 10px   
+        @include mobile
+          width: 260px
+          margin-top: 20px
+          height: 160px
         &:hover
-          transform: scale(1.1, 1.1)
-      a.link
-        position: absolute
-        width: 100%
-        height: 100%          
-        .background
-          position: absolute
-          width: 0%
-          height: 0%
-          left: 50%
-          top: 50%
-          margin: 0 auto
-          background-color: rgba(0, 0, 0, 0.5)
-          transition: 0.2s
-          @include mobile
-            height: 100%
-            width: 100%
-            left: 0
-            top: 0
-          .title
-            transition: 0.5s
-            text-align: center
-            color: white
-            font-size: 0px
-            margin-top: 0px
-            font-family: 'city-flowers'
+          transition: 0.5s
+          transform: scale(1.15, 1.15)
+          z-index: 100
+          .background
+            transition: 0.2s
+            width: 100% !important
+            height: 100% !important
+            left: 0% !important
+            top: 0% !important
+            background-color: rgba(0, 0, 0, 0.8)
+            cursor: pointer
             @include mobile
-              font-size: 32px
-              margin-top: 65px
-      img
-        height: 100%
-        width: 100%
+              height: 100% !important
+              width: 100% !important
+              left: 0 !important
+              top: 0 !important
+            .title
+              font-size: 45px !important
+              margin-top: 60px !important  
+              @include mobile
+                font-size: 32px !important
+                margin-top: 65px !important
+        .modal-click
+          position: absolute
+          width: 100%
+          height: 100%
+          cursor: pointer        
+          .plus
+            height: 70px
+            width: 70px
+            margin: 60px auto
+        .delete
+          position: absolute
+          height: 40px
+          width: 40px
+          border: 2px solid white
+          border-radius: 50%
+          z-index: 100
+          right: 10px
+          top: 10px
+          cursor: pointer
+          background-image: url("close.svg")
+          background-size: cover
+          background-position: center
+          &:hover
+            transform: scale(1.1, 1.1)
+        a.link
+          position: absolute
+          width: 100%
+          height: 100%          
+          .background
+            position: absolute
+            width: 0%
+            height: 0%
+            left: 50%
+            top: 50%
+            margin: 0 auto
+            background-color: rgba(0, 0, 0, 0.5)
+            transition: 0.2s
+            @include mobile
+              height: 100%
+              width: 100%
+              left: 0
+              top: 0
+            .title
+              transition: 0.5s
+              text-align: center
+              color: white
+              font-size: 0px
+              margin-top: 0px
+              font-family: 'city-flowers'
+              @include mobile
+                font-size: 32px
+                margin-top: 65px
+        img
+          height: 100%
+          width: 100%
 
 
+.price-block
+  @include mobile
+    left: 30px
 .block
   position: relative
   width: 100%
@@ -446,6 +463,7 @@ $desctop: 1300px
     -moz-user-select: none
     -webkit-user-select: none 
     @include mobile
+      margin-top: 20px
       height: 30px     
     .first-line
       visibility: hidden
@@ -493,7 +511,7 @@ $desctop: 1300px
   width: initial
   @include mobile
     margin-left: 0px 
-    margin-top: 20px    
+    margin-top: 10px
   .first-line
     visibility: hidden
     position: absolute
@@ -559,7 +577,8 @@ $desctop: 1300px
       display: flex
       @include mobile
         width: 100%
-        margin-top: 10px
+        height: auto
+        margin-top: 25px
         flex-direction: column
       .cover        
         display: relative
@@ -574,11 +593,15 @@ $desctop: 1300px
           .background
             height: 400px
             margin-top: 0px 
+            @include mobile
+              height: 200px
             .text
               transition: 0.4s
               margin-top: 180px
               font-size 
-              font-size: 30px !important 
+              font-size: 30px !important
+              @include mobile
+                margin-top: 85px
         .delete
           position: absolute
           height: 40px
@@ -601,6 +624,12 @@ $desctop: 1300px
           height: 0px
           width: 500px
           background-color: rgba(0,0,0,0.9)
+          @include mobile
+            margin-top: 0px
+            background-color: rgba(0, 0, 0, 0.3)
+            width: 100%
+            min-width: 300px
+            height: 200px
           .text
             z-index: 60
             transition: 0.1s
@@ -608,6 +637,10 @@ $desctop: 1300px
             font-family: 'open-sans'
             margin-top: 0px  
             font-size: 0px 
+            @include mobile
+              font-size: 30px
+              color: white
+              margin-top: 85px
         img
           height: 100%
           width: 100%
@@ -617,8 +650,11 @@ $desctop: 1300px
         color: white
         font-family: 'open-sans'
         font-size: 15px
+        @include mobile
+          height: auto
         .rigth
           margin-left: 0px !important
+
 
         .title
           font-size: 25px
@@ -652,39 +688,61 @@ $desctop: 1300px
     width: 930px
     margin: 0px auto  
     margin-top: 100px
+    @include mobile
+      width: 100%
+      overflow-x: hidden
   .prices-cont
     width: 930px
     margin: 0px auto
     margin-top: 230px
+    @include mobile
+      width: 300px
+      margin-top: 0px
     .price-block
       margin-bottom: 80px
       width: 100%
       height: 350px
       display: flex
+      @include mobile
+        flex-direction: column
+        height: auto
+        margin-bottom: 40px
       .cover
         $size: 70%
-        $width: 6px        
-        background-color: grey
+        $width: 6px
         display: relative
         height: 100%
         min-width: 500px
         max-width: 500px
         cursor: pointer
         position: relative
+        @include mobile
+          min-width: 300px
+          max-width: 300px
+          height: 150px
+          margin: 0px auto
         &:hover
           transition: 0.5s
           z-index: 100
           .background
             transition: 0.5s
+            transition: font-size 0.2s
             width: 100% !important
             height: 100% !important
             left: 0% !important
             top: 0% !important
             background-color: rgba(0, 0, 0, 0.8)
             cursor: pointer
+            .once
+              top: 140px !important
+              @include mobile
+                top: 60px !important
             .cov-title
               font-size: 50px
-              top: 140px
+              top: 120px
+              @include mobile 
+                font-size: 30px
+                top: 40px
           .left-board
             transition: 0.5s
             .bot
@@ -714,13 +772,14 @@ $desctop: 1300px
           margin: 0 auto
           background-color: rgba(0, 0, 0, 0.5)
           transition: 0.2s
+          transition: font-size 0.7s
           .cov-title
             position: relative
             font-family: 'city-flowers'
             color: white 
             background-color: none
             top: 200px
-            font-size: 0px 
+            font-size: 0px
             text-align: center !important
 
         .left-board
@@ -769,20 +828,38 @@ $desctop: 1300px
         width: 100%
         height: 100%
         position: relative
+        @include mobile
+          height: auto
         .small-t-anim
+          $fon: #640247
+          $dur: 2s
           margin-left: 50px
           user-select: none
           -moz-user-select: none
-          -webkit-user-select: none         
+          -webkit-user-select: none
+          @include mobile
+            margin-left: 0px !important
+          .first-line
+            @include mobile
+              height: 23px
+          .second-line
+            @include mobile
+              height: 23px
+          .text
+            @include mobile
+              font-size: 18px            
+        p.first
+          font-weight: bolder
+          padding-top: 25px !important
         p
           color: white
-          padding-top: 25px
           padding-left: 50px
           width: 90%
           font-size: 14px
+          padding-top: 2px !important
           @include mobile
             padding-left: 0px
-            font-size: 12px
+            padding-top: 0px !important
 
 
         p.rigth
@@ -795,6 +872,9 @@ $desctop: 1300px
           right: 0
           background-color: $purple
           color: white
+          @include mobile 
+            position: relative
+            margin: 0px auto
           .cont
             display: flex
             width: 130px
@@ -825,6 +905,8 @@ $desctop: 1300px
     background-image: url("line.png")
     background-size: 100%
     background-repeat: repeat-y
+    @include mobile
+      background-image: none
     .big-name
       position: absolute
       height: 280px
@@ -838,21 +920,37 @@ $desctop: 1300px
       letter-spacing: 30px
       line-height: 90px
       animation: nameAnim 1.5s
+      @include mobile
+        width: 250px
+        height: 160px
+        top: 260px
+        font-size: 25px
+        line-height: 30px
+        left: 140px
+        letter-spacing: 20px
+        animation: nameMobAnim 1.5s
     .left-bl
       position: absolute
-      height: 210px
+      height: 280px
       width: 500px
       background-color: rgba(0,7,25,0.9)
       bottom: 20px
       left: 100px
       z-index: 50
       animation: Upper 1s
+      @include mobile
+        height: 120px
+        width: 330px
+        left: 15px
+        bottom: 20px
       .contacts
         position: absolute
         height: 130px
         width: 250px
         margin-top: 100px
         margin-left: 50px
+        @include mobile
+          margin-top: 10px
         .contact
           display: flex
           height: 20px
@@ -875,6 +973,12 @@ $desctop: 1300px
       background-image: url("michel.png")
       background-size: cover
       animation: portretAnim 1s
+      @include mobile
+        animation: portretMobAnim 1s
+        top: 110px  
+        height: 200px
+        width: 300px
+        left: 60px
     .right-bl
       z-index: 50
       position: absolute
@@ -884,6 +988,13 @@ $desctop: 1300px
       top: 150px
       right: 0px
       animation: contactFirst 0.8s
+      @include mobile
+        animation: contactMobFirst 0.8s
+        top: 300px
+        height: 130px
+        width: 330px
+        left: 15px
+        font-size: 11px
       .text
         margin-top: 70px
         margin-left: 50px
@@ -892,28 +1003,52 @@ $desctop: 1300px
         color: white
         font-size: 14px
         font-family: 'open-sans'
+        @include mobile
+          width: 300px
+          margin-left: 30px
+          margin-top: 25px
+@-webkit-keyframes nameMobAnim
+  0%
+    left: -300px
+  100%
+    left: 140px
 
 @-webkit-keyframes nameAnim
   0%
     left: -700px
   100%
-    left: 60px      
+    left: 60px 
+
+@-webkit-keyframes portretMobAnim
+  0%
+    top: -300px
+  100%
+    top: 110px
+
 @-webkit-keyframes portretAnim
   0%
     top: -350px
   100%
     top: 120px
+
 @-webkit-keyframes Upper
   0%
     bottom: -210px
   100%
     bottom: 20px
 
+@-webkit-keyframes contactMobFirst
+  0%
+    left: -300px
+  100%
+    right: 30px
+
 @-webkit-keyframes contactFirst
   0%
     right: 100%
   100%
     right: 0%
+
 @-webkit-keyframes Top
   0%
     margin-top: 100px

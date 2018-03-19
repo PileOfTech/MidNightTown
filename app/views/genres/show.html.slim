@@ -41,7 +41,7 @@
         .text ng-bind="ctrl.genre.name"
 
     div ng-repeat="pack in ctrl.genre.packs"
-      div ng-if="$index%2==0"
+      div ng-if="$index%2==0 || !notMobile"
         .pack
           .cover
             -if user_signed_in?
@@ -55,7 +55,7 @@
               .second-line.wow
               .text ng-bind="pack.name"           
             p &emsp;&emsp;&emsp;&nbsp;{{pack.description}}
-      div ng-if="$index%2==1"
+      div ng-if="$index%2==1 && notMobile"
         .pack
           .desc
             a.small-t-anim.rigth ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"   

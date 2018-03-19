@@ -12,6 +12,12 @@ app.controller 'GenresCtrl', [
       }).init()
     )
     ctrl = this
+    $scope.notMobile
+    if($(window).width() > 800)
+      $scope.notMobile = true
+    else
+      $scope.notMobile = false
+    console.log $scope.notModile
     $('.close').click ()->
       $('.modal-back-main').removeClass('open')
       $('body').css('overflow-y', 'auto')
@@ -36,25 +42,25 @@ app.controller 'GenresCtrl', [
           $('#town1').css('top',(0-(scrolled*0.6))+'px')
           $('#town2').css('top',(0-(scrolled*0.3))+'px')
           $('#town3').css('top',(0-(scrolled*0.1))+'px')
-          $('#back').css('top',(0-(scrolled*0.5))+'px')
+          $('#back').css('top',(0-(scrolled*0.6))+'px')
         else
           scrolled = $(window).scrollTop()
           $('#town1').css('top',(0-(scrolled*0.4))+'px')
           $('#town2').css('top',(0-(scrolled*0.3))+'px')
           $('#town3').css('top',(0-(scrolled*0.1))+'px')
           $('#back').css('top',(0-(scrolled*0.4))+'px')
-
-        if($(window).width() > 1000)
-          if(scrolled > lastScrollTop)
-            $('.genres').removeClass('return')
-            if(scrolled > 250)
-              $('.genres').addClass('top')  
-          if(scrolled < lastScrollTop)
-            if(scrolled <= 250)
-              $('.genres').removeClass('top2')
-              $('.genres').addClass('return')
-            if(scrolled <= 100)
-              $('.genres').removeClass('top')                
+        
+        # if($(window).width() > 1000)
+        #   if(scrolled > lastScrollTop)
+        #     $('.genres').removeClass('return')
+        #     if(scrolled > 250)
+        #       $('.genres').addClass('top')  
+        #   if(scrolled < lastScrollTop)
+        #     if(scrolled <= 250)
+        #       $('.genres').removeClass('top2')
+        #       $('.genres').addClass('return')
+        #     if(scrolled <= 100)
+        #       $('.genres').removeClass('top')              
         lastScrollTop = scrolled
       
       $scope.remove = (id)->

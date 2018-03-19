@@ -5,6 +5,18 @@ $pink: #9F1E32
 $sky: #2c2e3e
 $purple: #640247
 
+$desctop: 1300px
+@mixin desctop
+  @media (min-width: $desctop)
+    @content
+
+@mixin smobile
+  @media (max-width: 320px)
+    @content
+
+@mixin mobile
+  @media (min-width: 321px) and (max-width: 567px)
+    @content
 
 .close
   height: 30px
@@ -95,10 +107,11 @@ $purple: #640247
 .modal-back
   display: none
   position: absolute
-  height: 100%
+  height: calc(100% + 50px)
   width: 100%
   background-color: rgba(0,0,0,0.9)
   z-index: 50
+  overflow-x: hidden
   .modal
     z-index: 30
     position: relative
@@ -109,6 +122,9 @@ $purple: #640247
     margin-top: 70px
     background-size: cover
     border-radius: 5px
+    @include mobile
+      margin-top: 100px
+      height: 230px
     .bigimage
       border-radius: 5px
       position: absolute
@@ -164,13 +180,19 @@ $purple: #640247
 
 
       .arrow-side
-        width: 200px
+        width: 180px
         height: 100%
         cursor: pointer
+        position: absolute
         transition: background 1s ease-out
         background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.0))
         z-index: 40
+        @include mobile
+          width: 85px
+          transition: none
+          background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.0))
         .arrow
+          -webkit-tap-highlight-color: rgba(0,0,0,0)
           transition: 0.5s
           height: 50px
           width: 25px
@@ -179,7 +201,7 @@ $purple: #640247
           opacity: 0
           user-select: none
           -moz-user-select: none
-          -webkit-user-select: none           
+          -webkit-user-select: none
           img
             z-index: 50
             height: 100%
@@ -188,17 +210,19 @@ $purple: #640247
           .arrow
             opacity: 1
             transform: scale(1.1, 1.1)
+            @include mobile
+              opacity: 0          
       .left
         transition: background 1s ease-out
-        float: left
+        left: 0
         &:hover
           background: linear-gradient(to right, rgba(0,0,0,.85), rgba(0,0,0,0.0))
       .right
-        float: right
+        right: 0
         &:hover
           background: linear-gradient(to left, rgba(0,0,0,.85), rgba(0,0,0,0.0))
         .arrow
-          margin-left: 150px
+          margin-left: 130px
           img
             transform: rotate(180deg)
             height: 100%
@@ -218,6 +242,8 @@ $purple: #640247
     flex-wrap: wrap
     margin: 0px auto
     justify-content: space-around
+    @include mobile 
+      width: 300px
     .add
       border: 1px solid white
       background-color: $sky  
@@ -228,6 +254,8 @@ $purple: #640247
       position: relative
       cursor: pointer
       transition: 0.3s
+      @include mobile
+        margin-top: 20px
       .delete
         z-index: 40
         position: absolute

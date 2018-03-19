@@ -75,8 +75,27 @@ app.controller 'PacksCtrl', [
         $('#img').attr("src", url)
         width = document.getElementById("img").width
         height = document.getElementById("img").height
-        delta =  height / 500
+        
+        if($(window).width() > 400)
+          modalH = 500
+        else
+          modalH = 230
+
+        delta =  height / modalH
         newW = width /delta
+
+        if($(window).width() <= 400)
+          if(modalH >= newW)
+            modalH = modalH*2
+            newW = newW*2
+            $('.modal').css('height', modalH)
+            $('.modal').css('margin-top', 60+'px')
+          else
+            modalH = 230
+            $('.modal').css('height', modalH)
+            $('.modal').css('margin-top', 150+'px')
+            
+        
         $('.modal').css('width', newW)
         $('body').css('overflow-y', 'hidden')
         scrolled = $(window).scrollTop()
