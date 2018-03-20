@@ -897,6 +897,7 @@ $desctop: 1300px
 
 .contactpage
   overflow-y: hidden
+  overflow-x: hidden
   .back-line
     position: absolute
     min-height: 100%
@@ -911,7 +912,7 @@ $desctop: 1300px
       position: absolute
       height: 280px
       width: 700px
-      top: 340px
+      top: 260px
       left: 60px
       z-index: 100
       color: white
@@ -923,7 +924,7 @@ $desctop: 1300px
       @include mobile
         width: 250px
         height: 160px
-        top: 260px
+        top: 280px
         font-size: 25px
         line-height: 30px
         left: 140px
@@ -939,7 +940,8 @@ $desctop: 1300px
       z-index: 50
       animation: Upper 1s
       @include mobile
-        height: 120px
+        z-index: 130
+        height: 180px
         width: 330px
         left: 15px
         bottom: 20px
@@ -963,6 +965,8 @@ $desctop: 1300px
             font-weight: bolder
           span
             margin-left: 5px
+            a 
+              color: white
     .portret
       position: absolute
       height: 350px
@@ -989,9 +993,10 @@ $desctop: 1300px
       right: 0px
       animation: contactFirst 0.8s
       @include mobile
+        display: none
         animation: contactMobFirst 0.8s
         top: 300px
-        height: 130px
+        height: 210px
         width: 330px
         left: 15px
         font-size: 11px
