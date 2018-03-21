@@ -60,6 +60,7 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :info
   config.serve_static_assets = true
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 

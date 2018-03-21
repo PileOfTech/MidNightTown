@@ -48,7 +48,7 @@
               .delete ng-click="remove(pack.id)"          
             a.background ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
               .text ПЕРЕЙТИ
-            img src="{{pack.cover.url}}"
+            img ng-src="{{pack.cover.url}}"
           .desc        
             a.small-t-anim ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
               .first-line.wow
@@ -68,4 +68,4 @@
               .delete ng-click="remove(pack.id)"            
             a.background ui-sref="genre_pack_path({genre_id: ctrl.genre.id, id: pack.id})"
               .text ПЕРЕЙТИ          
-            img src="{{pack.cover.url}}"
+            img ng-src="{{pack.cover.url}}"
