@@ -37,7 +37,7 @@
       .image id="{{$index}}"
         -if user_signed_in?
           .delete ng-click="remove(image.id)"
-        img src="{{image.image.url}}" ng-click="modal($index)" 
+        img ng-src="{{image.image.url}}" ng-click="modal($index)" 
 
     -if user_signed_in?
       .image.add ng-click="add()"
