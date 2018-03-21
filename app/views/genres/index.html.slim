@@ -43,7 +43,7 @@
           a.link ui-sref="genre_path({id: genre.id})"
             .background
               .title ng-bind="genre.name"
-            img src="{{genre.cover.url}}"
+            /img src="{{genre.cover.url}}"
       
       -if user_signed_in?
         .genre-bl.add ng-click="modal()"
