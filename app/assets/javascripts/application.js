@@ -17,7 +17,6 @@
 = require ngDialog
 = require angular-truncate-2
 = require_tree ./configs
-= require_tree ./directives
 */
 var app = angular.module('app', ['ui.router','oxymoron', 'ngDialog', 'ngFileUpload']);
 
