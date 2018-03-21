@@ -12,7 +12,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
   
-  config.assets.enabled = false
+  config.assets.enabled = true
 
 
 
