@@ -17,7 +17,7 @@ app.controller 'GenresCtrl', [
       $scope.notMobile = true
     else
       $scope.notMobile = false
-    console.log $scope.notModile
+    
     $('.close').click ()->
       $('.modal-back-main').removeClass('open')
       $('body').css('overflow-y', 'auto')

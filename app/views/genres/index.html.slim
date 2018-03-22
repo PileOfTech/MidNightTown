@@ -44,7 +44,7 @@
             .background
               .title ng-bind="genre.name"
 
-            img ng-src="{{genre.cover.url}}"
+            img.image ng-if="genre.cover.url" ng-src="{{genre.cover.url}}"
       
       -if user_signed_in?
         .genre-bl.add ng-click="modal()"
