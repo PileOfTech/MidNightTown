@@ -5,6 +5,7 @@ html ng-app="app"
     base href="/"
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
+    script src="https://use.fontawesome.com/ceb108a0b2.js"
   body
     .navbar
       a.price-list ui-sref="price_list_path" Услуги
@@ -14,3 +15,13 @@ html ng-app="app"
     
     ui-view
       /= yield
+
+    footer
+      .contacts
+        a href="https://vk.com/m1dn1gh7_70wn" target="blank"
+          i class="fa fa-vk"
+        a href="https://www.instagram.com/midnight_town_official/" target="blank"
+          i class="fa fa-instagram"
+      .contacts Copyright &copy; 2018. Все права защищены. 
+
+

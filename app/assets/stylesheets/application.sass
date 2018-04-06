@@ -16,7 +16,9 @@
  *= require ammap.css
  */
 
+$black-purple: #2A1D2F
 $desctop: 1300px
+
 @mixin desctop
   @media (min-width: $desctop)
     @content
@@ -113,6 +115,30 @@ a
       height: 100%
       border-radius: 50%
 
+footer
+  height: 75px
+  width: 100%
+  background-color: $black-purple
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  .contacts
+    height: 25px
+    width: 350px
+    color: white 
+    margin-top: 30px
+    a
+      margin-left: 25px
+      height: 25px
+      width: 25px
+      border-radius: 50%
+      &:hover
+        i
+          transition: 1s
+          transform: scale(1.2, 1.2)
+      i 
+        color: white
+        font-size: 1.5em
 // .global
 //   width: 100%
 //   height: 450px
